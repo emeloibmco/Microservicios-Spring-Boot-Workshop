@@ -111,7 +111,7 @@ docker push <usuario docker>/servicio-eureka-server:v1
 
 	
 * ```Image name from external registry:``` <usuario docker>/servicio-eureka-server:v1
-* ``Runtime:``` openjdk
+* ```Runtime:``` openjdk
 * ```Application:``` Asegurese que sea el nombre del proyecto donde desplegó la base de datos.
 * ```Name:``` servicio-eureka-server
 * ```Resources:``` Deployment
