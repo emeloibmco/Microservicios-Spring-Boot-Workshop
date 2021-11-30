@@ -30,9 +30,11 @@ Espere a que se complete satisfactoriamiente la construcción. Este procediemien
 
 2. Cree un repositorio en github llamado "mvn-repo" e incluya cada uno de lo jar generados, tenga en cuenta que cada .jar debe quedar en una carpeta especifica, siguiendo este lineamiento: 
 
-```<Nombre del paquete>/<Nombre del proyecto>/<Version>````
+```
+<Nombre del paquete>/<Nombre del proyecto>/<Version>
+```
 
-Por ejemplo, el jar de la libreria commons-alumnos quedo incluida en la siguiente direccion com/formacion/springboot/commons/alumnos/commons-alumnos/0.0.1-SNAPSHOT/. Revise como quedaron configuradas las carpetas en el repositorio de librerias commons creado para este [proyecto](https://github.com/paulapachon/mvn-repo).
+Por ejemplo, el jar de la libreria commons-alumnos quedo incluida en la dirección com/formacion/springboot/commons/alumnos/commons-alumnos/0.0.1-SNAPSHOT/. Revise como quedaron configuradas las carpetas en el repositorio de librerias commons creado para este [proyecto](https://github.com/paulapachon/mvn-repo).
   
 3. Una vez incluidos los .jar en el repositorio de github, debe incluirse en el pom de los microservicios el repositorio, con el siguiente segmento de código:
   
