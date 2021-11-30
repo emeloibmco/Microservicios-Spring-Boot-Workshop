@@ -109,12 +109,13 @@ docker push <usuario docker>/servicio-eureka-server:v1
 
 6. Compruebe en DockerHub que su imagen ha sido publicada y copie la dirección de la imagen, que debe ser: <usuario docker>/servicio-eureka-server:v1. Ingrese a la consola de Openshift y al proyecto donde ha desplegado la base de datos, asegurese de estar en el perfil de Developer. De click en ```+Add``` del menú lateral  y ingrese en la opción ```Container images```. A continuación complete lo siguiente:
 
-*```Image name from external registry:``` <usuario docker>/servicio-eureka-server:v1
-*``Runtime:``` openjdk
-*```Application:``` Asegurese que sea el nombre del proyecto donde desplegó la base de datos.
-*```Name:``` servicio-eureka-server
-*```Resources:``` Deployment
-*```Advanced options:``` Seleccione la opción Create a route to the Application.
+	
+* ```Image name from external registry:``` <usuario docker>/servicio-eureka-server:v1
+* ``Runtime:``` openjdk
+* ```Application:``` Asegurese que sea el nombre del proyecto donde desplegó la base de datos.
+* ```Name:``` servicio-eureka-server
+* ```Resources:``` Deployment
+* ```Advanced options:``` Seleccione la opción Create a route to the Application.
 	
 Por último de click en ```Create```.
 	
