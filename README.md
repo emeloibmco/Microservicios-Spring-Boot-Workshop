@@ -76,7 +76,7 @@ ENTRYPOINT ["java","-jar","/eureka-server.jar"]
 
 ```
 
-```Nota:``` En <version> ingrese el número de la versión de java con la que creo el proyecto. Para <puerto> ingrese el número del puerto donde desea exponer la aplicación. Y por último ingrese el <nombre del jar generado> que puede identificarlo en la carpeta target del proyecto. 
+```Nota:``` En ```<version>``` ingrese el número de la versión de java con la que creo el proyecto. Para ```<puerto>``` ingrese el número del puerto donde desea exponer la aplicación. Y por último ingrese el ```<nombre del jar generado>``` que puede identificarlo en la carpeta target del proyecto. 
 	
 Para este proyecto el Dockerfile ha quedado conigurado de la siguiente forma:
 ```
@@ -92,7 +92,7 @@ ENTRYPOINT ["java","-jar","/eureka-server.jar"]
 docker build -t <usuario docker>/<nombre de la imagen>:<tag> .	
 ```
 	
-```Nota:``` En <usuario docker> ingrese el nombre de usuario docker que tiene en docker desktop. Para <nombre de la imagen> ingrese el nombre del microservicio, en este caso "servicio-eureka-server". Y por último ingrese el <tag> que identifica la versión de la imagen, en este caso v1. 
+```Nota:``` En ```<usuario docker>``` ingrese el nombre de usuario docker que tiene en docker desktop. Para ```<nombre de la imagen>``` ingrese el nombre del microservicio, en este caso "servicio-eureka-server". Y por último ingrese el ```<tag>``` que identifica la versión de la imagen, en este caso v1. 
 	
 4. Una vez construida la imagen, puede probarla localmente, para verificar que funciona correctamente. Para esto, ejecute el siguiente comando:
 	
@@ -107,10 +107,10 @@ docker run -p 8761:8761 --name servicio-eureka-server --network springcloud <usu
 docker push <usuario docker>/servicio-eureka-server:v1
 ```
 
-6. Compruebe en DockerHub que su imagen ha sido publicada y copie la dirección de la imagen, que debe ser: <usuario docker>/servicio-eureka-server:v1. Ingrese a la consola de Openshift y al proyecto donde ha desplegado la base de datos, asegurese de estar en el perfil de Developer. De click en ```+Add``` del menú lateral  y ingrese en la opción ```Container images```. A continuación complete lo siguiente:
+6. Compruebe en DockerHub que su imagen ha sido publicada y copie la dirección de la imagen, que debe ser: ```<usuario docker>/servicio-eureka-server:v1```. Ingrese a la consola de Openshift y al proyecto donde ha desplegado la base de datos, asegurese de estar en el perfil de Developer. De click en ```+Add``` del menú lateral  e ingrese en la opción ```Container images```. A continuación complete lo siguiente:
 
 	
-* ```Image name from external registry:``` <usuario docker>/servicio-eureka-server:v1
+* ```Image name from external registry:``` ```<usuario docker>/servicio-eureka-server:v1```
 * ```Runtime:``` openjdk
 * ```Application:``` Asegurese que sea el nombre del proyecto donde desplegó la base de datos.
 * ```Name:``` servicio-eureka-server
