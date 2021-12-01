@@ -210,7 +210,7 @@ Una vez ha verificado el funcionamiento de Eureka, el paso siguiente consiste en
 	ENTRYPOINT ["java","-jar","/servicio-respuestas.jar"]
 	```
 
-4. El paso siguiente consiste en generar la imagen Docker de la aplicación. Para ello, dentro de la carpeta del microservicio, abra una consola y ejecute el comando:
+4. El paso siguiente consiste en generar la imagen Docker de cada microservicio. Para ello, dentro de la carpeta del microservicio, abra una consola y ejecute el comando:
 	
 	```
 	docker build -t <usuario docker>/<nombre de la imagen>:<tag> .	
@@ -227,11 +227,11 @@ Una vez ha verificado el funcionamiento de Eureka, el paso siguiente consiste en
 	> NOTA: recuerde reemplazar el valor de ```<puerto>``` con el puerto indicado para cada microservicio, ```<nombre de la imagen>``` con el nombre del microservicio respectivo (servicio-usuarios, servicio-cursos, servicio-examenes y servicio-respuestas) y ```<usuario docker>``` con el nombre de usuario docker que tiene en docker desktop.
 																		 
 																		 
-6. Verifique que la imagen se ha publicado en DockerHub.
+6. Verifique que cada una de las imágenes se ha publicado en DockerHub.
 															
 7. Posteriormente, debe desplegar la imagen de cada microservicio en la consola web de OpenShift. Asegúrese de estar en el proyecto donde tiene desplegada la base de datos y el servicio Eureka con el rol de Developer. Luego realice lo siguiente:
 												
-	* De click en l pestaña ```+Add``` (ubicada en el menú lateral izquierdo) e ingrese en la opción ```Container images```.
+	* De click en la pestaña ```+Add``` (ubicada en el menú lateral izquierdo) e ingrese en la opción ```Container images```.
 																		 
 	En los siguientes campos complete:
 	* ```Image name from external registry```: ```<usuario docker>/<nombre de la imagen>:v1```. Para cada microservicio coloque:
@@ -254,11 +254,112 @@ Una vez ha verificado el funcionamiento de Eureka, el paso siguiente consiste en
 	
 	Por último de click en el botón ```Create```.
 
-8. Una vez desplegado el microservicio, de click en la ruta creada para acceder al microservicio (todos deben responder con [ ] si no hay ningún dato. El único microservicio que no entrega respuesta es el servicio-respuestas). Luego verifique que cada microservicio se registre en Eureka.
+8. Una vez desplegado cada uno de los microservicios, verifique que se hayan registrado en Eureka. Posteriormente, de click en la ruta creada para acceder a cada microservicio (todos deben responder con [ ] si no hay ningún dato. El único microservicio que no entrega respuesta es el servicio-respuestas). 
 																		 
 <br />
 	
 ## Configuración y despliegue del microservicio Gateway :door:
+Luego de verificar el funcionamiento de los respectivos microservicios, el paso siguiente consiste en desplegar el microservicio gateway. Spring Cloud Gateway, funciona como punto de entrada a los microservicios, proporcionando características y capacidades como: enrutamiento dinámico, seguridad y monitoreo de solicitudes y llamadas que se realizan. Complete los pasos que se muestran a continuación para configurar y desplegar este microservicio:
+	
+1. En el ```application.properties``` del microservicio indique las rutas URL de los microservicios usuarios, cursos, examenes y respuestas, obtenidas en el paso 8 de la sección [Configuración y despliegue de microservicios](#Configuración-y-despliegue-de-microservicios-paperclips). Para esto reemplace los valores ```url_servicio_usuarios```, ```url_servicio_cursos```, ```url_servicio_examenes``` y ```url_servicio_respuestas```. Por otro lado, el puerto por defecto para eset microservicio en ```8090```.
+
+   ```powershell
+   spring.application.name=microservicio-gateway
+   server.port=8090
+
+   eureka.client.service-url.defaultZone=http://servicio-eureka-server:8761/eureka
+
+   spring.cloud.gateway.routes[0].id=microservicio-usuarios
+   spring.cloud.gateway.routes[0].uri=url_servicio_usuarios
+   spring.cloud.gateway.routes[0].predicates=Path=/api/alumnos/**
+   spring.cloud.gateway.routes[0].filters=StripPrefix=2
+
+   spring.cloud.gateway.routes[1].id=microservicio-cursos
+   spring.cloud.gateway.routes[1].uri=url_servicio_cursos
+   spring.cloud.gateway.routes[1].predicates=Path=/api/cursos/**
+   spring.cloud.gateway.routes[1].filters=StripPrefix=2
+
+   spring.cloud.gateway.routes[2].id=microservicio-examenes
+   spring.cloud.gateway.routes[2].uri=url_servicio_examenes
+   spring.cloud.gateway.routes[2].predicates=Path=/api/examenes/**
+   spring.cloud.gateway.routes[2].filters=StripPrefix=2
+
+   spring.cloud.gateway.routes[3].id=microservicio-respuestas
+   spring.cloud.gateway.routes[3].uri=url_servicio_respuestas
+   spring.cloud.gateway.routes[3].predicates=Path=/api/respuestas/**
+   spring.cloud.gateway.routes[3].filters=StripPrefix=2
+
+   spring.cloud.loadbalancer.ribbon.enabled=false
+   ```
+
+2. Genere el .jar del microservicio gateway ingresando a la carpeta correspondiente (donde se ubica el archivo mvnw), luego acceda a la consola y ejecute el comando:
+   ```powershell
+   ./mvnw clean package -DskipTests
+   ```
+	
+3. Luego de generar el .jar del microservicio gateway, cree el archivo ```Dockerfile``` con la misma estructura indicada para los anteriores microservicios. 
+
+   ```powershell
+   FROM openjdk:<version>
+   VOLUME /tmp
+   EXPOSE <puerto>
+   ADD ./target/<nombre del jar generado>.jar <servicio>.jar
+   ENTRYPOINT ["java","-jar","/eureka-<servicio>.jar"]   
+   ```
+
+   Para el microservicio gateway de este proyecto, el Dockerfile queda de la siguiente manera:
+   * Microservicio usuarios: 
+	```powershell
+	FROM openjdk:16
+	VOLUME /tmp
+	EXPOSE 8090
+	ADD ./target/microservicio-gateway-0.0.1-SNAPSHOT.jar servicio-gateway.jar
+	ENTRYPOINT ["java","-jar","/servicio-gateway.jar"]
+	```
+
+4. El paso siguiente consiste en generar la imagen Docker del microservicio. Para ello, dentro de la carpeta del microservicio, abra una consola y ejecute el comando:
+	
+	```
+	docker build -t <usuario docker>/<nombre de la imagen>:<tag> .	
+	```
+	
+	> NOTA: recuerde reemplazar ```<usuario docker>``` con el nombre de usuario docker que tiene en docker desktop, ```<nombre de la imagen>``` con el nombre del microservicio (servicio-gateway) y por último ingrese el ```<tag>``` que identifica la versión de la imagen, en este caso v1.
+	
+5. Cuando finalice el proceso de creación de la imagen del microservicio gateway, realice pruebas localmente con el comando:
+	
+	```
+	docker run -p <puerto>:<puerto> --name <nombre de la imagen> --network springcloud <usuario docker>/<nombre de la imagen>:v1
+	```
+	
+	> NOTA: recuerde reemplazar el valor de ```<puerto>``` con el puerto indicado para cada microservicio, ```<nombre de la imagen>``` con el nombre del microservicio respectivo (servicio-gateways) y ```<usuario docker>``` con el nombre de usuario docker que tiene en docker desktop.
+																		 
+																		 
+6. Verifique que la imagen se ha publicado en DockerHub.
+															
+7. Posteriormente, debe desplegar la imagen del microservicio gateway en la consola web de OpenShift. Asegúrese de estar en el proyecto donde tiene desplegada la base de datos,  el servicio Eureka y los demás microservicios con el rol de Developer. Luego realice lo siguiente:
+												
+	* De click en la pestaña ```+Add``` (ubicada en el menú lateral izquierdo) e ingrese en la opción ```Container images```.
+																		 
+	En los siguientes campos complete:
+	* ```Image name from external registry```: ```<usuario docker>/<nombre de la imagen>:v1```. Para este caso coloque ```<usuario docker>/servicio-gateway:v1```.		
+	* ```Runtime```: openjdk
+	* ```Application```: Asegúrese que sea el nombre del proyecto donde desplegó la base de datos, el servicio Eureka y los demás microservicios.
+	* ```Name```: servicio-gateway.	
+	* ```Resources```: Deployment.
+	* ```Advanced options```: Seleccione la opción *Create a route to the Application*.
+	
+	Por último de click en el botón ```Create```.
+
+8. Una vez desplegado el microservicio, verifique que el se haya registrado en Eureka. Luego, de click en la ruta creada para acceder al mismo. Una vez cargue la URL no observará respuesta, por lo que debe agregar al final de la ruta cada path de acuerdo al microservicio, ejemplo: ```/api/alumnos```, ```/api/cursos``. 
+	
+	
+	
+	
+	
+	
+	
+	
+	
 <br />
 
 ## Referencias :book:
