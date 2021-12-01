@@ -1,16 +1,21 @@
 # Microservicios Spring-Boot Workshop :leaves::cloud:
 
+En esta guía se encuentra explicado el proceso paso a paso y las herramientas necesarias para el despliegue de una web app fullstack con Microservicios Spring como backend y Angular como frontend en un cluster de Red Hat OpenShift.
+
 <br />
 
 ## Índice  📰
+
 1. [Pre-Requisitos](#pre-requisitos-pencil)
-2. [Librerias commons](#Librerias-commons-books)
-3. [Configuración y despliegue del microservicio Eureka](#Configuración-y-despliegue-del-microservicio-Eureka-registered)
-4. [Configuración y despliegue de microservicios](#Configuración-y-despliegue-de-microservicios-paperclips)
-5. [Configuración y despliegue del microservicio Gateway](#Configuración-y-despliegue-del-microservicio-Gateway-door)
-6. [Acceder a la aplicación](#Acceder-a-la-aplicación-computer)
-7. [Referencias](#Referencias-book)
-8. [Autores](#Autores-black_nib)
+2. [Creación de un nuevo proyecto en OpenShift]
+3. [Despliegue de la base de datos] 
+4. [Librerias commons](#Librerias-commons-books)
+5. [Configuración y despliegue del microservicio Eureka](#Configuración-y-despliegue-del-microservicio-Eureka-registered)
+6. [Configuración y despliegue de microservicios](#Configuración-y-despliegue-de-microservicios-paperclips)
+7. [Configuración y despliegue del microservicio Gateway](#Configuración-y-despliegue-del-microservicio-Gateway-door)
+8. [Acceder a la aplicación](#Acceder-a-la-aplicación-computer)
+9. [Referencias](#Referencias-book)
+10. [Autores](#Autores-black_nib)
 
 ## Pre Requisitos :pencil:
 * Contar con una cuenta en <a href="https://cloud.ibm.com/"> IBM Cloud</a>.
@@ -18,6 +23,20 @@
 * Tener instalado Git.
 * 
 <br />
+
+## Creación de un nuevo proyecto en OpenShift
+Antes de iniciar con el despliegue de la aplicación es necesario crear un nuevo proyecto en un cluster de OpenShift, para esto tenga en cuenta los siguientes pasos:
+
+1. Desde el menú de navegación o menú de hamburguesa seleccione ```Resource List```. Esto lo llevara a la lista de recursos, aquí seleccione el cluster en el cual desea crear un nuevo proyecto.
+2. Una vez se encuentre en la ventana principal del cluster de click sobre ```OpenShift web console```, esto abrirá una nueva ventana emergente.
+3. Cuando se encuentre en la consola de OpenShift seleccione el rol de ```Administrator``` y de click sobre la pestaña ```Projects```.
+4. Aquí de click sobre el botón ```Create Project``` e ingrese la información que se le pide, luego de click en ```create```. 
+
+
+
+## Despliegue de la base de datos
+
+
 
 ## Librerias commons :books:
 Existe las librerias commons, que son proyectos creados en sprigboot para ser utilizadas por los microservicios como librerias, es decir, que contienen clases, modelos o servicios que son utilizadas por varios de los microservicios y no hace falta volverlos a crear en cada microservicio. Cuando estamos trabajando el proyecto localmente basta con que estas librerias se encuentren en el mismo proyecto que los microservicios para poder hacer uso de sus clases incluyendolos en el pom del microservicio, sin embargo en un entorno de nube necesitaremos un repositorio remoto que nos permita acceder a estos. A continuación se detallan los pasos para hacer utilizar un repositorio de github que permita a los microservicios disponer de estas librerias commons:
