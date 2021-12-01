@@ -126,7 +126,7 @@ Por último de click en ```Create```.
 <br />
 	
 ## Configuración y despliegue de microservicios :paperclips:
-Una vez ha verificado el funcionamiento de Eureka, el paso siguiente consiste en configurar y desplegar los microservicios usuarios, cursos, examenes y respuestas. Los pasos que se indican a continuación los debe repetir para cada microservicios establecido, modificando las características inidicadas. Realice lo siguiente:
+Una vez ha verificado el funcionamiento de Eureka, el paso siguiente consiste en configurar y desplegar los microservicios usuarios, cursos, examenes y respuestas. Los pasos que se indican a continuación los debe repetir para cada microservicio establecido, modificando las características indicadas. Realice lo siguiente:
 
 1. En el ```application.properties``` de cada microservicio asegúrese de completar las siguientes modificaciones, teniendo en cuenta el servicio de eureka y la conexión con la base de datos:
 
