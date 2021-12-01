@@ -308,7 +308,7 @@ Luego de verificar el funcionamiento de los respectivos microservicios, el paso 
    ```
 
    Para el microservicio gateway de este proyecto, el Dockerfile queda de la siguiente manera:
-   * Microservicio usuarios: 
+   
 	```powershell
 	FROM openjdk:16
 	VOLUME /tmp
