@@ -261,7 +261,7 @@ Una vez ha verificado el funcionamiento de Eureka, el paso siguiente consiste en
 ## Configuración y despliegue del microservicio Gateway :door:
 Luego de verificar el funcionamiento de los respectivos microservicios, el paso siguiente consiste en desplegar el microservicio gateway. Spring Cloud Gateway funciona como punto de entrada a los microservicios, proporcionando características y capacidades como: enrutamiento dinámico, seguridad y monitoreo de solicitudes y llamadas que se realizan. Complete los pasos que se muestran a continuación para configurar y desplegar este microservicio:
 	
-1. En el ```application.properties``` del microservicio indique las rutas URL de los microservicios usuarios, cursos, examenes y respuestas, obtenidas en el paso 8 de la sección [Configuración y despliegue de microservicios](#Configuración-y-despliegue-de-microservicios-paperclips). Para esto reemplace los valores ```url_servicio_usuarios```, ```url_servicio_cursos```, ```url_servicio_examenes``` y ```url_servicio_respuestas```. Por otro lado, el puerto por defecto para eset microservicio en ```8090```.
+1. En el ```application.properties``` del microservicio indique las rutas URL de los microservicios usuarios, cursos, examenes y respuestas, obtenidas en el paso 8 de la sección [Configuración y despliegue de microservicios](#Configuración-y-despliegue-de-microservicios-paperclips). Para esto reemplace los valores ```url_servicio_usuarios```, ```url_servicio_cursos```, ```url_servicio_examenes``` y ```url_servicio_respuestas```. Por otro lado, el puerto por defecto para este microservicio en ```8090```.
 
    ```powershell
    spring.application.name=microservicio-gateway
