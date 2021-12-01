@@ -109,12 +109,12 @@ docker run -p 8761:8761 --name servicio-eureka-server --network springcloud <usu
 docker push <usuario docker>/servicio-eureka-server:v1
 ```
 
-6. Compruebe en DockerHub que su imagen ha sido publicada y copie la dirección de la imagen, que debe ser: ```<usuario docker>/servicio-eureka-server:v1```. Ingrese a la consola de Openshift y al proyecto donde ha desplegado la base de datos, asegurese de estar en el perfil de Developer. De click en ```+Add``` del menú lateral  e ingrese en la opción ```Container images```. A continuación complete lo siguiente:
+6. Compruebe en DockerHub que su imagen ha sido publicada y copie la dirección de la imagen, que debe ser: ```<usuario docker>/servicio-eureka-server:v1```. Ingrese a la consola de Openshift y al proyecto donde ha desplegado la base de datos, asegúrese de estar en el perfil de Developer. De click en ```+Add``` del menú lateral  e ingrese en la opción ```Container images```. A continuación complete lo siguiente:
 
 	
 * ```Image name from external registry:``` ```<usuario docker>/servicio-eureka-server:v1```
 * ```Runtime:``` openjdk
-* ```Application:``` Asegurese que sea el nombre del proyecto donde desplegó la base de datos.
+* ```Application:``` Asegúrese que sea el nombre del proyecto donde desplegó la base de datos.
 * ```Name:``` servicio-eureka-server
 * ```Resources:``` Deployment
 * ```Advanced options:``` Seleccione la opción Create a route to the Application.
@@ -234,15 +234,14 @@ Una vez ha verificado el funcionamiento de Eureka, el paso siguiente consiste en
 	* De click en ```+Add``` del menú lateral e ingrese en la opción ```Container images```.
 																		 
 	En los siguientes campos complete:
-	* ```Image name from external registry```: ```<usuario docker>/<nombre de la imagen>:v1```
-	  Para cada microservicio coloque:
+	* ```Image name from external registry```: ```<usuario docker>/<nombre de la imagen>:v1```. Para cada microservicio coloque:
 		* ```<usuario docker>/servicio-usuarios:v1```
 		* ```<usuario docker>/servicio-cursos:v1```
 		* ```<usuario docker>/servicio-examenes:v1```
 		* ```<usuario docker>/servicio-respuestas:v1```
 	
 	* ```Runtime```: openjdk
-	* ```Application```: Asegurese que sea el nombre del proyecto donde desplegó la base de datos y el servicio Eureka.
+	* ```Application```: Asegúrese que sea el nombre del proyecto donde desplegó la base de datos y el servicio Eureka.
 	* ```Name```: nombre-servicio
 	  Para cada microservicio coloque:
 		* servicio-usuarios
