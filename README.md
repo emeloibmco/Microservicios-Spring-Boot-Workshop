@@ -25,14 +25,14 @@ Existe las librerias commons, que son proyectos creados en sprigboot para ser ut
 
 1. Generar el .jar de cada una de las librerias commons. En este proyecto contamos con tres librerias commons: commons-alumnos, commons-microservicios y commons-examenes. Para que se genere el .jar, acceda a la carpera del proyecto, abra la consola y ejecute el siguiente comando:
 
-```
+```powershell
 ./mvnw clean package -DskipTests
 ```
 Espere a que se complete satisfactoriamiente la construcción. Este procediemiento ejecutelo con cada una de las librerias commons.
 
 2. Cree un repositorio en github llamado "mvn-repo" e incluya cada uno de lo jar generados, tenga en cuenta que cada .jar debe quedar en una carpeta especifica, siguiendo este lineamiento: 
 
-```
+```powershell
 <Nombre del paquete>/<Nombre del proyecto>/<Version>
 ```
 
@@ -40,7 +40,7 @@ Por ejemplo, el jar de la libreria commons-alumnos quedo incluida en la direcci�
   
 3. Una vez incluidos los .jar en el repositorio de github, debe incluirse en el pom de los microservicios el repositorio, con el siguiente segmento de código:
   
-  ```
+  ```powershell
 	<repositories>
 		<repository>
 			<id>project-common</id>
@@ -62,14 +62,14 @@ Para publicar el microservicio Eureka en Openshift, se deben seguir los pasos a 
 
 1. Genere el .jar del microservicio accediento a la carpeta del microservicio, abriendo la consola y ejecutando el siguiente comando:
 
-```
+```powershell
 ./mvnw clean package -DskipTests
 ```
 Espere a que se complete satisfactoriamiente la construcción.
 
 2. Una vez generado el .jar del microservicio, en springboot cree un nuevo archivo en el proyecto de Eureka llamado "Dockerfile" y complete el archivo con la siguiente información:
 
-```
+```powershell
 FROM openjdk:<version>
 VOLUME /tmp
 EXPOSE <puerto>
@@ -81,7 +81,7 @@ ENTRYPOINT ["java","-jar","/eureka-server.jar"]
 ```Nota:``` En ```<version>``` ingrese el número de la versión de java con la que creo el proyecto. Para ```<puerto>``` ingrese el número del puerto donde desea exponer la aplicación. Y por último ingrese el ```<nombre del jar generado>``` que puede identificarlo en la carpeta target del proyecto. 
 	
 Para este proyecto el Dockerfile ha quedado conigurado de la siguiente forma:
-```
+```powershell
 FROM openjdk:16
 VOLUME /tmp
 EXPOSE 8761
@@ -90,7 +90,7 @@ ENTRYPOINT ["java","-jar","/eureka-server.jar"]
 ```
 3. Configurado el Dockerfile, procederemos a construir la imagen docker, para esto ingrese nuevamente a la carpeta del microservicio y abra la consola, a continuación ejecute el siguiente comando:
 	
-```
+```powershell
 docker build -t <usuario docker>/<nombre de la imagen>:<tag> .	
 ```
 	
@@ -98,7 +98,7 @@ docker build -t <usuario docker>/<nombre de la imagen>:<tag> .
 	
 4. Una vez construida la imagen, puede probarla localmente, para verificar que funciona correctamente. Para esto, ejecute el siguiente comando:
 	
-```
+```powershell
 docker run -p 8761:8761 --name servicio-eureka-server --network springcloud <usuario docker>/servicio-eureka-server:v1
 ```	
 ```Nota:``` Si se va a probar localmente todo el proyecto, se recomienda correr el servicio con un --name especifico y además en una network especifica (Para crear esta network ejecute el comando ```docker network create springcloud```)
