@@ -173,7 +173,7 @@ Una vez ha verificado el funcionamiento de Eureka, el paso siguiente consiste en
    ENTRYPOINT ["java","-jar","/eureka-<servicio>.jar"]   
    ```
 
-   Para cada microservicio de este proyecto, el dockerfile queda de la siguiente manera:
+   Para cada microservicio de este proyecto, el Dockerfile queda de la siguiente manera:
    * Microservicio usuarios: 
 	```powershell
 	FROM openjdk:16
@@ -209,7 +209,22 @@ Una vez ha verificado el funcionamiento de Eureka, el paso siguiente consiste en
 	ADD ./target/microservicio-respuestas-0.0.1-SNAPSHOT.jar servicio-respuestas.jar
 	ENTRYPOINT ["java","-jar","/servicio-respuestas.jar"]
 	```
-		
+
+4. El paso siguiente consiste en generar la imagen Docker de la aplicación. Para ello, dentro de la carpeta del microservicio, abra una consola y ejecute el comando:
+	
+	```
+	docker build -t <usuario docker>/<nombre de la imagen>:<tag> .	
+	```
+	
+	> NOTA: recuerde reemplazar <usuario docker> con el nombre de usuario docker que tiene en docker desktop, <nombre de la imagen> con el nombre de cada microservicio (servicio-usuarios, servicio-cursos, servicio-examenes y servicio-respuestas) y por último ingrese el <tag> que identifica la versión de la imagen, en este caso v1.
+	
+5. Cuando finalice el proceso de creación de la imagen de cada microservicio, realice pruebas localmente con el comando:
+	
+	```
+	docker run -p <puerto>:<puerto> --name <nombre de la imagen> --network springcloud <usuario docker>/<nombre de la imagen>:v1
+	```
+	
+	> NOTA: recuerde reemplazar el valor de ```<puerto>``` con el puerto indicado para cada microservicio y <nombre de la imagen> con el nombre del microservicio respectivo (servicio-usuarios, servicio-cursos, servicio-examenes y servicio-respuestas)
 <br />
 	
 ## Configuración y despliegue del microservicio Gateway :door:
