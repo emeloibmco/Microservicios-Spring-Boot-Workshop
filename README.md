@@ -216,7 +216,7 @@ Una vez ha verificado el funcionamiento de Eureka, el paso siguiente consiste en
 	docker build -t <usuario docker>/<nombre de la imagen>:<tag> .	
 	```
 	
-	> NOTA: recuerde reemplazar <usuario docker> con el nombre de usuario docker que tiene en docker desktop, <nombre de la imagen> con el nombre de cada microservicio (servicio-usuarios, servicio-cursos, servicio-examenes y servicio-respuestas) y por último ingrese el <tag> que identifica la versión de la imagen, en este caso v1.
+	> NOTA: recuerde reemplazar <usuario docker> con el nombre de usuario docker que tiene en docker desktop, ```<<nombre de la imagen>```< con el nombre de cada microservicio (servicio-usuarios, servicio-cursos, servicio-examenes y servicio-respuestas) y por último ingrese el ```<<tag>```< que identifica la versión de la imagen, en este caso v1.
 	
 5. Cuando finalice el proceso de creación de la imagen de cada microservicio, realice pruebas localmente con el comando:
 	
@@ -224,7 +224,39 @@ Una vez ha verificado el funcionamiento de Eureka, el paso siguiente consiste en
 	docker run -p <puerto>:<puerto> --name <nombre de la imagen> --network springcloud <usuario docker>/<nombre de la imagen>:v1
 	```
 	
-	> NOTA: recuerde reemplazar el valor de ```<puerto>``` con el puerto indicado para cada microservicio y <nombre de la imagen> con el nombre del microservicio respectivo (servicio-usuarios, servicio-cursos, servicio-examenes y servicio-respuestas)
+	> NOTA: recuerde reemplazar el valor de ```<puerto>``` con el puerto indicado para cada microservicio y ```<<nombre de la imagen>```< con el nombre del microservicio respectivo (servicio-usuarios, servicio-cursos, servicio-examenes y servicio-respuestas).
+																		 
+																		 
+6. Verifique que la imagen se ha publicado en DockerHub.
+															
+7. Posteriormente, debe desplegar la imagen de cada microservicio en la consola web de OpenShift. Asegúrese de estar en el proyecto donde tiene desplegada la base de datos y el servicio Eureka con el rol de Developer. Luego realice lo siguiente:
+												
+	* De click en ```+Add``` del menú lateral e ingrese en la opción ```Container images```.
+																		 
+	En los siguientes campos complete:
+	* ```Image name from external registry```: <usuario docker>/<nombre de la imagen>:v1
+	  Para cada microservicio coloque:
+		* <usuario docker>/servicio-usuarios:v1
+		* <usuario docker>/servicio-cursos:v1
+		* <usuario docker>/servicio-examenes:v1
+		* <usuario docker>/servicio-respuestas:v1
+	
+	* ```Runtime```: openjdk
+	* ```Application```: Asegurese que sea el nombre del proyecto donde desplegó la base de datos y el servicio Eureka.
+	* ```Name```: nombre-servicio
+	  Para cada microservicio coloque:
+		* servicio-usuarios
+		* servicio-cursos
+		* servicio-examenes
+		* servicio-respuestas
+	
+	* ```Resources```: Deployment.
+	* ```Advanced options```: Seleccione la opción *Create a route to the Application*.
+	
+	Por último de click en el botón ```Create```.
+
+8. Una vez desplegado el microservicio, de click en la ruta creada para acceder al microservicio (todos deben responder con [] si no hay ningún dato. El único microservici que no entrega respuesta es el servicio-respuestas). Luego verifique que cada microservicio se registre en Eureka.
+																		 
 <br />
 	
 ## Configuración y despliegue del microservicio Gateway :door:
