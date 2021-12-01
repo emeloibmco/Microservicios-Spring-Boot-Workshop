@@ -231,7 +231,7 @@ Una vez ha verificado el funcionamiento de Eureka, el paso siguiente consiste en
 															
 7. Posteriormente, debe desplegar la imagen de cada microservicio en la consola web de OpenShift. Asegúrese de estar en el proyecto donde tiene desplegada la base de datos y el servicio Eureka con el rol de Developer. Luego realice lo siguiente:
 												
-	* De click en ```+Add``` del menú lateral e ingrese en la opción ```Container images```.
+	* De click en l pestaña ```+Add``` (ubicada en el menú lateral izquierdo) e ingrese en la opción ```Container images```.
 																		 
 	En los siguientes campos complete:
 	* ```Image name from external registry```: ```<usuario docker>/<nombre de la imagen>:v1```. Para cada microservicio coloque:
