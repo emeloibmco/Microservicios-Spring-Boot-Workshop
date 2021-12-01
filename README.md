@@ -255,7 +255,7 @@ Una vez ha verificado el funcionamiento de Eureka, el paso siguiente consiste en
 	
 	Por último de click en el botón ```Create```.
 
-8. Una vez desplegado el microservicio, de click en la ruta creada para acceder al microservicio (todos deben responder con [] si no hay ningún dato. El único microservici que no entrega respuesta es el servicio-respuestas). Luego verifique que cada microservicio se registre en Eureka.
+8. Una vez desplegado el microservicio, de click en la ruta creada para acceder al microservicio (todos deben responder con [ ] si no hay ningún dato. El único microservicio que no entrega respuesta es el servicio-respuestas). Luego verifique que cada microservicio se registre en Eureka.
 																		 
 <br />
 	
