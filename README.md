@@ -212,7 +212,7 @@ Una vez ha verificado el funcionamiento de Eureka, el paso siguiente consiste en
 
 4. El paso siguiente consiste en generar la imagen Docker de cada microservicio. Para ello, dentro de la carpeta del microservicio, abra una consola y ejecute el comando:
 	
-	```
+	```powershell
 	docker build -t <usuario docker>/<nombre de la imagen>:<tag> .	
 	```
 	
@@ -220,7 +220,7 @@ Una vez ha verificado el funcionamiento de Eureka, el paso siguiente consiste en
 	
 5. Cuando finalice el proceso de creación de la imagen de cada microservicio, realice pruebas localmente con el comando:
 	
-	```
+	```powershell
 	docker run -p <puerto>:<puerto> --name <nombre de la imagen> --network springcloud <usuario docker>/<nombre de la imagen>:v1
 	```
 	
@@ -321,7 +321,7 @@ Luego de verificar el funcionamiento de los respectivos microservicios, el paso 
 
 4. El paso siguiente consiste en generar la imagen Docker del microservicio. Para ello, dentro de la carpeta del microservicio, abra una consola y ejecute el comando:
 	
-	```
+	```powershell
 	docker build -t <usuario docker>/<nombre de la imagen>:<tag> .	
 	```
 	
@@ -329,7 +329,7 @@ Luego de verificar el funcionamiento de los respectivos microservicios, el paso 
 	
 5. Cuando finalice el proceso de creación de la imagen del microservicio gateway, realice pruebas localmente con el comando:
 	
-	```
+	```powershell
 	docker run -p <puerto>:<puerto> --name <nombre de la imagen> --network springcloud <usuario docker>/<nombre de la imagen>:v1
 	```
 	
