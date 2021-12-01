@@ -234,12 +234,12 @@ Una vez ha verificado el funcionamiento de Eureka, el paso siguiente consiste en
 	* De click en ```+Add``` del menú lateral e ingrese en la opción ```Container images```.
 																		 
 	En los siguientes campos complete:
-	* ```Image name from external registry```: <usuario docker>/<nombre de la imagen>:v1
+	* ```Image name from external registry```: ```<usuario docker>/<nombre de la imagen>:v1```
 	  Para cada microservicio coloque:
-		* <usuario docker>/servicio-usuarios:v1
-		* <usuario docker>/servicio-cursos:v1
-		* <usuario docker>/servicio-examenes:v1
-		* <usuario docker>/servicio-respuestas:v1
+		* ```<usuario docker>/servicio-usuarios:v1```
+		* ```<usuario docker>/servicio-cursos:v1```
+		* ```<usuario docker>/servicio-examenes:v1```
+		* ```<usuario docker>/servicio-respuestas:v1```
 	
 	* ```Runtime```: openjdk
 	* ```Application```: Asegurese que sea el nombre del proyecto donde desplegó la base de datos y el servicio Eureka.
