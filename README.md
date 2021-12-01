@@ -216,7 +216,7 @@ Una vez ha verificado el funcionamiento de Eureka, el paso siguiente consiste en
 	docker build -t <usuario docker>/<nombre de la imagen>:<tag> .	
 	```
 	
-	> NOTA: recuerde reemplazar ```<usuario docker>``` con el nombre de usuario docker que tiene en docker desktop, ```<<nombre de la imagen>```< con el nombre de cada microservicio (servicio-usuarios, servicio-cursos, servicio-examenes y servicio-respuestas) y por último ingrese el ```<<tag>```< que identifica la versión de la imagen, en este caso v1.
+	> NOTA: recuerde reemplazar ```<usuario docker>``` con el nombre de usuario docker que tiene en docker desktop, ```<nombre de la imagen>``` con el nombre de cada microservicio (servicio-usuarios, servicio-cursos, servicio-examenes y servicio-respuestas) y por último ingrese el ```<tag>``` que identifica la versión de la imagen, en este caso v1.
 	
 5. Cuando finalice el proceso de creación de la imagen de cada microservicio, realice pruebas localmente con el comando:
 	
@@ -224,7 +224,7 @@ Una vez ha verificado el funcionamiento de Eureka, el paso siguiente consiste en
 	docker run -p <puerto>:<puerto> --name <nombre de la imagen> --network springcloud <usuario docker>/<nombre de la imagen>:v1
 	```
 	
-	> NOTA: recuerde reemplazar el valor de ```<puerto>``` con el puerto indicado para cada microservicio y ```<<nombre de la imagen>```< con el nombre del microservicio respectivo (servicio-usuarios, servicio-cursos, servicio-examenes y servicio-respuestas).
+	> NOTA: recuerde reemplazar el valor de ```<puerto>``` con el puerto indicado para cada microservicio y ```<nombre de la imagen>``` con el nombre del microservicio respectivo (servicio-usuarios, servicio-cursos, servicio-examenes y servicio-respuestas).
 																		 
 																		 
 6. Verifique que la imagen se ha publicado en DockerHub.
