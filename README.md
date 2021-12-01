@@ -229,8 +229,6 @@ Una vez ha verificado el funcionamiento de Eureka, el paso siguiente consiste en
 																		 
 6. Verifique que cada una de las imágenes se ha publicado en DockerHub.
 	
-	<p align="center"><img src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/Eureka_microservicios.PNG"></p>
-	
 7. Despliegue la imagen de cada microservicio en la consola web de OpenShift. Asegúrese de estar en el proyecto donde tiene desplegada la base de datos y el servicio Eureka con el rol de Developer. Luego realice lo siguiente:
 												
 	* De click en la pestaña ```+Add``` (ubicada en el menú lateral izquierdo) e ingrese en la opción ```Container images```.
@@ -257,6 +255,8 @@ Una vez ha verificado el funcionamiento de Eureka, el paso siguiente consiste en
 	Por último de click en el botón ```Create```.
 
 8. Una vez desplegado cada uno de los microservicios, verifique que se hayan registrado en Eureka. Posteriormente, de click en la ruta creada para acceder a cada microservicio (todos deben responder con [ ] si no hay ningún dato. El único microservicio que no entrega respuesta es el servicio-respuestas). 
+	
+	<p align="center"><img src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/Eureka_microservicios.PNG"></p>
 																		 
 <br />
 	
@@ -337,9 +337,7 @@ Luego de verificar el funcionamiento de los respectivos microservicios, el paso 
 																		 
 																		 
 6. Verifique que la imagen se ha publicado en DockerHub.
-	
-	<p align="center"><img src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/Eureka_gateway.PNG"></p>
-															
+																
 7. Despliegue la imagen del microservicio gateway en la consola web de OpenShift. Asegúrese de estar en el proyecto donde tiene desplegada la base de datos,  el servicio Eureka y los demás microservicios con el rol de Developer. Luego realice lo siguiente:
 												
 	* De click en la pestaña ```+Add``` (ubicada en el menú lateral izquierdo) e ingrese en la opción ```Container images```.
@@ -355,6 +353,8 @@ Luego de verificar el funcionamiento de los respectivos microservicios, el paso 
 	Por último de click en el botón ```Create```.
 
 8. Una vez desplegado el microservicio, verifique que se haya registrado en Eureka. Luego, de click en la ruta creada para acceder al mismo. Una vez cargue la URL no observará respuesta, por lo que debe agregar al final de la ruta cada path de acuerdo al microservicio, ejemplo: ```/api/alumnos```, ```/api/cursos```, ```/api/examenes``` y ```/api/respuestas```. 
+	
+	<p align="center"><img src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/Eureka_gateway.PNG"></p>
 	
 	
 <br />
