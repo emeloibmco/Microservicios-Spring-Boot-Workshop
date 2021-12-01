@@ -30,6 +30,8 @@ Existe las librerias commons, que son proyectos creados en sprigboot para ser ut
 ```
 Espere a que se complete satisfactoriamiente la construcción. Este procediemiento ejecutelo con cada una de las librerias commons.
 
+<p align="center"><img width="700" src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/commons.gif"></p>
+
 2. Cree un repositorio en github llamado "mvn-repo" e incluya cada uno de lo jar generados, tenga en cuenta que cada .jar debe quedar en una carpeta especifica, siguiendo este lineamiento: 
 
 ```powershell
@@ -93,21 +95,26 @@ ENTRYPOINT ["java","-jar","/eureka-server.jar"]
 ```powershell
 docker build -t <usuario docker>/<nombre de la imagen>:<tag> .	
 ```
-	
+
 ```Nota:``` En ```<usuario docker>``` ingrese el nombre de usuario docker que tiene en docker desktop. Para ```<nombre de la imagen>``` ingrese el nombre del microservicio, en este caso "servicio-eureka-server". Y por último ingrese el ```<tag>``` que identifica la versión de la imagen, en este caso v1. 
-	
+
+<p align="center"><img width="700" src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/build.gif"></p>
+
 4. Una vez construida la imagen, puede probarla localmente, para verificar que funciona correctamente. Para esto, ejecute el siguiente comando:
 	
 ```powershell
 docker run -p 8761:8761 --name servicio-eureka-server --network springcloud <usuario docker>/servicio-eureka-server:v1
 ```	
 ```Nota:``` Si se va a probar localmente todo el proyecto, se recomienda correr el servicio con un --name especifico y además en una network especifica (Para crear esta network ejecute el comando ```docker network create springcloud```)
+
+<p align="center"><img width="700" src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/run.gif"></p>
 	
 5. Ahora debemos publicar la imagen construida en DockerHub, para esto ejecute el siguiente comando:
 	
 ```
 docker push <usuario docker>/servicio-eureka-server:v1
 ```
+<p align="center"><img width="700" src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/push.gif"></p>
 
 6. Compruebe en DockerHub que su imagen ha sido publicada y copie la dirección de la imagen, que debe ser: ```<usuario docker>/servicio-eureka-server:v1```. Ingrese a la consola de Openshift y al proyecto donde ha desplegado la base de datos, asegúrese de estar en el perfil de Developer. De click en ```+Add``` del menú lateral  e ingrese en la opción ```Container images```. A continuación complete lo siguiente:
 
@@ -121,8 +128,11 @@ docker push <usuario docker>/servicio-eureka-server:v1
 	
 Por último de click en ```Create```.
 	
+<p align="center"><img width="700" src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/openshift.gif"></p>
+	
 7. Una vez desplegado el microservicio, de click en la ruta creada para acceder al microservicio, debe acceder a la consola convecional de Eureka.
 
+<p align="center"><img width="700" src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/eureka.gif"></p>
 <br />
 	
 ## Configuración y despliegue de microservicios :paperclips:
