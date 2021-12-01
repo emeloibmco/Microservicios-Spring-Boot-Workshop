@@ -228,7 +228,9 @@ Una vez ha verificado el funcionamiento de Eureka, el paso siguiente consiste en
 																		 
 																		 
 6. Verifique que cada una de las imágenes se ha publicado en DockerHub.
-															
+	
+	<p align="center"><img src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/Eureka_microservicios.PNG"></p>
+	
 7. Despliegue la imagen de cada microservicio en la consola web de OpenShift. Asegúrese de estar en el proyecto donde tiene desplegada la base de datos y el servicio Eureka con el rol de Developer. Luego realice lo siguiente:
 												
 	* De click en la pestaña ```+Add``` (ubicada en el menú lateral izquierdo) e ingrese en la opción ```Container images```.
@@ -335,6 +337,8 @@ Luego de verificar el funcionamiento de los respectivos microservicios, el paso 
 																		 
 																		 
 6. Verifique que la imagen se ha publicado en DockerHub.
+	
+	<p align="center"><img src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/Eureka_gateway.PNG"></p>
 															
 7. Despliegue la imagen del microservicio gateway en la consola web de OpenShift. Asegúrese de estar en el proyecto donde tiene desplegada la base de datos,  el servicio Eureka y los demás microservicios con el rol de Developer. Luego realice lo siguiente:
 												
