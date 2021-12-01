@@ -145,18 +145,18 @@ Una vez ha verificado el funcionamiento de Eureka, el paso siguiente consiste en
    ```
 
    Para cada microservicio tenga en cuenta:
-   a. ```Microservicio usuarios```: 
-	* spring.application.name=microservicio-usuarios
-	* server.port=8890
-   b. ```Microservicio cursos```: 
-	* spring.application.name=cursos 
-	* server.port=8060
-   c. ```Microservicio examenes```: 
-	* spring.application.name=microservicio-examenes 
-	* server.port=8020
-   d. ```Microservicio respuestas```: 
-	* spring.application.name=microservicio-respuestas 
-	* server.port=8443
+   * ```Microservicio usuarios```: 
+		* spring.application.name=microservicio-usuarios
+		* server.port=8890
+   * ```Microservicio cursos```: 
+		* spring.application.name=cursos 
+		* server.port=8060
+   * ```Microservicio examenes```: 
+		* spring.application.name=microservicio-examenes 
+		* server.port=8020
+   * ```Microservicio respuestas```: 
+		* spring.application.name=microservicio-respuestas 
+		* server.port=8443
 	
 2. Genere el .jar de cada microservicio accediendo a la carpeta correspondiente de cada uno (donde se ubica el archivo mvnw), luego acceda a la consola y ejecute el comando:
    ```
