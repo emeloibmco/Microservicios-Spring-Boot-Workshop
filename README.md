@@ -6,9 +6,11 @@
 1. [Pre-Requisitos](#pre-requisitos-pencil)
 2. [Librerias commons](#Librerias-commons-books)
 3. [Configuración y despliegue del microservicio Eureka](#Configuración-y-despliegue-del-microservicio-Eureka-registered)
-4. [Acceder a la aplicación](#Acceder-a-la-aplicación-computer)
-5. [Referencias](#Referencias-book)
-6. [Autores](#Autores-black_nib)
+4. [Configuración y despliegue de microservicios](Configuración-y-despliegue-del-microservicios)
+5. [Configuración y despliegue de microservicio Gateway]((#Configuración-y-despliegue-del-microservicio-Gateway)
+6. [Acceder a la aplicación](#Acceder-a-la-aplicación-computer)
+7. [Referencias](#Referencias-book)
+8. [Autores](#Autores-black_nib)
 
 ## Pre Requisitos :pencil:
 * Contar con una cuenta en <a href="https://cloud.ibm.com/"> IBM Cloud</a>.
@@ -121,6 +123,12 @@ Por último de click en ```Create```.
 	
 7. Una vez desplegado el microservicio, de click en la ruta creada para acceder al microservicio, debe acceder a la consola convecional de Eureka.
 
+<br />
+	
+## Configuración y despliegue de microservicios
+<br />
+	
+## Configuración y despliegue de microservicio Gateway
 <br />
 
 ## Referencias :book:
