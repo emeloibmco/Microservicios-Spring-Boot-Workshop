@@ -126,6 +126,14 @@ Por último de click en ```Create```.
 <br />
 	
 ## Configuración y despliegue de microservicios :paperclips:
+Una vez ha verificado el funcionamiento de Eureka, el paso siguiente consiste en configurar y desplegar los microservicios usuarios, cursos, examenes y respuestas. Los pasos que se indican a continuación los debe repetir para cada microservicios establecido, modificando las características inidicadas. Realice lo siguiente:
+
+1. Genere el .jar de cada microservicio accediendo a la carpeta correspondiente de cada uno (donde se ubica el archivo mvnm), luego acceda a la consola y ejecute el comando:
+   ```
+   ./mvnw clean package -DskipTests
+   ```
+	
+2. 
 <br />
 	
 ## Configuración y despliegue del microservicio Gateway :door:
