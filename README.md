@@ -159,7 +159,7 @@ Una vez ha verificado el funcionamiento de Eureka, el paso siguiente consiste en
 		* server.port=8443
 	
 2. Genere el .jar de cada microservicio accediendo a la carpeta correspondiente de cada uno (donde se ubica el archivo mvnw), luego acceda a la consola y ejecute el comando:
-   ```
+   ```powershell
    ./mvnw clean package -DskipTests
    ```
 	
