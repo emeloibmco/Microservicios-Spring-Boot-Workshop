@@ -6,8 +6,8 @@
 1. [Pre-Requisitos](#pre-requisitos-pencil)
 2. [Librerias commons](#Librerias-commons-books)
 3. [Configuración y despliegue del microservicio Eureka](#Configuración-y-despliegue-del-microservicio-Eureka-registered)
-4. [Configuración y despliegue de microservicios ](Configuración-y-despliegue-del-microservicios-paperclips)
-5. [Configuración y despliegue de microservicio Gateway](#Configuración-y-despliegue-del-microservicio-Gateway-door)
+4. [Configuración y despliegue de microservicios](Configuración-y-despliegue-del-microservicios-paperclips)
+5. [Configuración y despliegue del microservicio Gateway](#Configuración-y-despliegue-del-microservicio-Gateway-door)
 6. [Acceder a la aplicación](#Acceder-a-la-aplicación-computer)
 7. [Referencias](#Referencias-book)
 8. [Autores](#Autores-black_nib)
@@ -128,7 +128,7 @@ Por último de click en ```Create```.
 ## Configuración y despliegue de microservicios :paperclips:
 <br />
 	
-## Configuración y despliegue de microservicio Gateway :door:
+## Configuración y despliegue del microservicio Gateway :door:
 <br />
 
 ## Referencias :book:
