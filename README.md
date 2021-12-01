@@ -32,7 +32,7 @@ Espere a que se complete satisfactoriamiente la construcción. Este procediemien
 
 <p align="center"><img width="700" src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/commons.gif"></p>
 
-2. Cree un repositorio en github llamado "mvn-repo" e incluya cada uno de lo jar generados, tenga en cuenta que cada .jar debe quedar en una carpeta especifica, siguiendo este lineamiento: 
+2. Cree un repositorio en github llamado "mvn-repo" e incluya cada uno de lo jar generados (se guardan en la carpeta target de cada proyecto), tenga en cuenta que cada .jar debe quedar en una carpeta especifica, siguiendo este lineamiento: 
 
 ```powershell
 <Nombre del paquete>/<Nombre del proyecto>/<Version>
@@ -80,7 +80,7 @@ ENTRYPOINT ["java","-jar","/eureka-server.jar"]
 
 ```
 
-```Nota:``` En ```<version>``` ingrese el número de la versión de java con la que creo el proyecto. Para ```<puerto>``` ingrese el número del puerto donde desea exponer la aplicación. Y por último ingrese el ```<nombre del jar generado>``` que puede identificarlo en la carpeta target del proyecto. 
+> NOTA: En ```<version>``` ingrese el número de la versión de java con la que creo el proyecto. Para ```<puerto>``` ingrese el número del puerto donde desea exponer la aplicación. Y por último ingrese el ```<nombre del jar generado>``` que puede identificarlo en la carpeta target del proyecto. 
 	
 Para este proyecto el Dockerfile ha quedado conigurado de la siguiente forma:
 ```powershell
@@ -96,7 +96,7 @@ ENTRYPOINT ["java","-jar","/eureka-server.jar"]
 docker build -t <usuario docker>/<nombre de la imagen>:<tag> .	
 ```
 
-```Nota:``` En ```<usuario docker>``` ingrese el nombre de usuario docker que tiene en docker desktop. Para ```<nombre de la imagen>``` ingrese el nombre del microservicio, en este caso "servicio-eureka-server". Y por último ingrese el ```<tag>``` que identifica la versión de la imagen, en este caso v1. 
+> NOTA: En ```<usuario docker>``` ingrese el nombre de usuario docker que tiene en docker desktop. Para ```<nombre de la imagen>``` ingrese el nombre del microservicio, en este caso "servicio-eureka-server". Y por último ingrese el ```<tag>``` que identifica la versión de la imagen, en este caso v1. 
 
 <p align="center"><img width="700" src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/build.gif"></p>
 
@@ -105,7 +105,7 @@ docker build -t <usuario docker>/<nombre de la imagen>:<tag> .
 ```powershell
 docker run -p 8761:8761 --name servicio-eureka-server --network springcloud <usuario docker>/servicio-eureka-server:v1
 ```	
-```Nota:``` Si se va a probar localmente todo el proyecto, se recomienda correr el servicio con un --name especifico y además en una network especifica (Para crear esta network ejecute el comando ```docker network create springcloud```)
+> NOTA: Si se va a probar localmente todo el proyecto, se recomienda correr el servicio con un --name especifico y además en una network especifica (Para crear esta network ejecute el comando ```docker network create springcloud```)
 
 <p align="center"><img width="700" src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/run.gif"></p>
 	
