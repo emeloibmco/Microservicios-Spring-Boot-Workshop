@@ -350,7 +350,7 @@ Luego de verificar el funcionamiento de los respectivos microservicios, el paso 
 	
 	Por último de click en el botón ```Create```.
 
-8. Una vez desplegado el microservicio, verifique que el se haya registrado en Eureka. Luego, de click en la ruta creada para acceder al mismo. Una vez cargue la URL no observará respuesta, por lo que debe agregar al final de la ruta cada path de acuerdo al microservicio, ejemplo: ```/api/alumnos```, ```/api/cursos```, ```/api/examenes``` y ```/api/respuestas```. 
+8. Una vez desplegado el microservicio, verifique que se haya registrado en Eureka. Luego, de click en la ruta creada para acceder al mismo. Una vez cargue la URL no observará respuesta, por lo que debe agregar al final de la ruta cada path de acuerdo al microservicio, ejemplo: ```/api/alumnos```, ```/api/cursos```, ```/api/examenes``` y ```/api/respuestas```. 
 	
 	
 <br />
