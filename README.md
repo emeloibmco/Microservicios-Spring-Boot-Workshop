@@ -128,12 +128,43 @@ Por último de click en ```Create```.
 ## Configuración y despliegue de microservicios :paperclips:
 Una vez ha verificado el funcionamiento de Eureka, el paso siguiente consiste en configurar y desplegar los microservicios usuarios, cursos, examenes y respuestas. Los pasos que se indican a continuación los debe repetir para cada microservicios establecido, modificando las características inidicadas. Realice lo siguiente:
 
-1. Genere el .jar de cada microservicio accediendo a la carpeta correspondiente de cada uno (donde se ubica el archivo mvnm), luego acceda a la consola y ejecute el comando:
+1. En el ```application.properties``` de cada microservicio asegúrese de completar las siguientes modificaciones, teniendo en cuenta el servicio de eureka y la conexión con la base de datos:
+
+   ```powershell
+   spring.application.name=microservicio-<nombre>
+   server.port=<puerto>
+   eureka.instance.instance-id=${spring.application.name}:${random.value}
+   eureka.client.service-url.defaultZone=http://servicio-eureka-server:8761/eureka
+   spring.datasource.url=jdbc:mysql://mysqldb:3306/db_microservices_app
+   spring.datasource.username=admin
+   spring.datasource.password=teamcloud2021
+   spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+   spring.jpa.database-platform=org.hibernate.dialect.MySQL8Dialect
+   spring.jpa.hibernate.ddl-auto=create
+   logging.level.org.hibernate.SQL=debug
+   ```
+
+   Para cada microservicio tenga en cuenta:
+   * ```Microservicio usuarios```: spring.application.name=microservicio-usuarios y server.port=8890.
+   * ```Microservicio cursos```: spring.application.name=cursos y server.port=8060.
+   * ```Microservicio examenes```: spring.application.name=microservicio-examenes y server.port=8020.
+   * ```Microservicio respuestas```: spring.application.name=microservicio-respuestas y server.port=8443.
+	
+2. Genere el .jar de cada microservicio accediendo a la carpeta correspondiente de cada uno (donde se ubica el archivo mvnw), luego acceda a la consola y ejecute el comando:
    ```
    ./mvnw clean package -DskipTests
    ```
 	
-2. 
+3. Luego de generar el .jar de cada microservicio, cree el archivo ```Dockerfile``` con la misma estructura indicada para el servicio Eureka. 
+
+   ```powershell
+   FROM openjdk:<version>
+   VOLUME /tmp
+   EXPOSE <puerto>
+   ADD ./target/<nombre del jar generado>.jar <servicio>.jar
+   ENTRYPOINT ["java","-jar","/eureka-<servicio>.jar"]   
+   ```
+	
 <br />
 	
 ## Configuración y despliegue del microservicio Gateway :door:
