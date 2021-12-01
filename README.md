@@ -149,7 +149,7 @@ Una vez ha verificado el funcionamiento de Eureka, el paso siguiente consiste en
 		* spring.application.name=microservicio-usuarios
 		* server.port=8890
    * ```Microservicio cursos```: 
-		* spring.application.name=cursos 
+		* spring.application.name=microservicio-cursos 
 		* server.port=8060
    * ```Microservicio examenes```: 
 		* spring.application.name=microservicio-examenes 
@@ -172,7 +172,44 @@ Una vez ha verificado el funcionamiento de Eureka, el paso siguiente consiste en
    ADD ./target/<nombre del jar generado>.jar <servicio>.jar
    ENTRYPOINT ["java","-jar","/eureka-<servicio>.jar"]   
    ```
-	
+
+   Para cada microservicio de este proyecto, el dockerfile queda de la siguiente manera:
+   * Microservicio usuarios: 
+	```powershell
+	FROM openjdk:16
+	VOLUME /tmp
+	EXPOSE 8890
+	ADD ./target/microservicio-usuarios-0.0.1-SNAPSHOT.jar servicio-usuarios.jar
+	ENTRYPOINT ["java","-jar","/servicio-usuarios.jar"]
+	```
+		
+   * Microservicio cursos 
+	```powershell
+	FROM openjdk:16
+	VOLUME /tmp
+	EXPOSE 8060
+	ADD ./target/microservicio-cursos-0.0.1-SNAPSHOT.jar servicio-cursos.jar
+	ENTRYPOINT ["java","-jar","/servicio-cursos.jar"]
+	```
+		
+   * Microservicio examenes 
+	```powershell
+	FROM openjdk:16
+	VOLUME /tmp
+	EXPOSE 8020
+	ADD ./target/microservicio-examenes-0.0.1-SNAPSHOT.jar servicio-examenes.jar
+	ENTRYPOINT ["java","-jar","/servicio-examenes.jar"]
+	```
+		
+   * Microservicio respuestas 
+	```powershell
+	FROM openjdk:16
+	VOLUME /tmp
+	EXPOSE 8443
+	ADD ./target/microservicio-respuestas-0.0.1-SNAPSHOT.jar servicio-respuestas.jar
+	ENTRYPOINT ["java","-jar","/servicio-respuestas.jar"]
+	```
+		
 <br />
 	
 ## Configuración y despliegue del microservicio Gateway :door:
