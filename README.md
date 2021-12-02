@@ -30,12 +30,27 @@ Antes de iniciar con el despliegue de la aplicación es necesario crear un nuevo
 1. Desde el menú de navegación o menú de hamburguesa seleccione ```Resource List```. Esto lo llevara a la lista de recursos, aquí seleccione el cluster en el cual desea crear un nuevo proyecto.
 2. Una vez se encuentre en la ventana principal del cluster de click sobre ```OpenShift web console```, esto abrirá una nueva ventana emergente.
 3. Cuando se encuentre en la consola de OpenShift seleccione el rol de ```Administrator``` y de click sobre la pestaña ```Projects```.
-4. Aquí de click sobre el botón ```Create Project``` e ingrese la información que se le pide, luego de click en ```create```. 
+4. Aquí de click sobre el botón ```Create Project``` e ingrese la información que se le pide, luego de click en ```create```.
+
+
 
 
 
 ## Despliegue de la base de datos
+Para desplegar una base de datos MySQL sobre el proyecto que acabo de crear tenga en cuenta los siguientes pasos:
 
+1.  Ingrese al proyecto con el rol de ```Developer```
+2.  De click sobre el botón ```+Add``` y luego elija la opcion de ```Database``` en la seccion de ```Developer Catalog```.
+3.  Aqui busque MySQL con la opción de filtrar por palabra clave.
+4.  De click sobre ```Instantiate Template```y complete la siguiente información:
+	*```Namespace```: Seleccione el proyecto que acabo de crear.
+	* ```Memory Limit```: Ingrese la cantidad máxima de memoria que puede usar el contenedor.
+	* ```Database Service Name```: El nombre del servicio OpenShift expuesto para la base de datos.
+	* ```MySQL Connection Username```: Nombre de usuario del usuario de MySQL que se utilizará para acceder a la base de datos.
+	* ```MySQL Connection Password```:  Contraseña para el usuario de conexión. 
+	* ```MySQL root user Password```: Contraseña para el usuario root.
+	* ```MySQL Database Name```: Nombre de la base de datos MySQL a la que se accede.
+5. Luego de esto de click en ```Create```.
 
 
 ## Librerias commons :books:
