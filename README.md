@@ -316,6 +316,8 @@ Una vez ha verificado el funcionamiento de Eureka, el paso siguiente consiste en
 	
 	<br />
 	
+	Realice la prueba con cada microservicio desplegado.
+	
 	<p align="center"><img src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/ProbarUsuarios.gif"></p>
 																		 
 <br />
