@@ -302,10 +302,16 @@ Una vez ha verificado el funcionamiento de Eureka, el paso siguiente consiste en
 	* ```Advanced options```: Seleccione la opción *Create a route to the Application*.
 	
 	Por último de click en el botón ```Create```.
+	
+	<p align="center"><img src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/DesplegarUsuarios.gif"></p>
 
 8. Una vez desplegado cada uno de los microservicios, verifique que se hayan registrado en Eureka. Posteriormente, de click en la ruta creada para acceder a cada microservicio (todos deben responder con [ ] si no hay ningún dato. El único microservicio que no entrega respuesta es el servicio-respuestas). 
 	
 	<p align="center"><img src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/Eureka_microservicios.PNG"></p>
+	
+	<br />
+	
+	<p align="center"><img src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/ProbarUsuarios.gif"></p>
 																		 
 <br />
 	
