@@ -7,8 +7,8 @@ En esta guía se encuentra explicado el proceso paso a paso y las herramientas n
 ## Índice  📰
 
 1. [Pre-Requisitos](#pre-requisitos-pencil)
-2. [Creación de un nuevo proyecto en OpenShift]
-3. [Despliegue de la base de datos] 
+2. [Creación de un nuevo proyecto en OpenShift](#Creación-de-un-nuevo-proyecto-en-OpenShift)
+3. [Despliegue de la base de datos](#Despliegue-de-la-base-de-datos)
 4. [Librerias commons](#Librerias-commons-books)
 5. [Configuración y despliegue del microservicio Eureka](#Configuración-y-despliegue-del-microservicio-Eureka-registered)
 6. [Configuración y despliegue de microservicios](#Configuración-y-despliegue-de-microservicios-paperclips)
