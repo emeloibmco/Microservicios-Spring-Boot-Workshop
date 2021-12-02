@@ -406,10 +406,16 @@ Luego de verificar el funcionamiento de los respectivos microservicios, el paso 
 	* ```Advanced options```: Seleccione la opción *Create a route to the Application*.
 	
 	Por último de click en el botón ```Create```.
+	
+	<p align="center"><img src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/DesplegarGateway.gif"></p>
 
 8. Una vez desplegado el microservicio, verifique que se haya registrado en Eureka. Luego, de click en la ruta creada para acceder al mismo. Una vez cargue la URL no observará respuesta, por lo que debe agregar al final de la ruta cada path de acuerdo al microservicio, ejemplo: ```/api/alumnos```, ```/api/cursos```, ```/api/examenes``` y ```/api/respuestas```. 
 	
 	<p align="center"><img src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/Eureka_gateway.PNG"></p>
+	
+	<br />
+	
+	<p align="center"><img src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/ProbarGateway.gif"></p>
 	
 	
 <br />
