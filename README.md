@@ -275,11 +275,11 @@ Una vez ha verificado el funcionamiento de Eureka, el paso siguiente consiste en
 	
 	> NOTA: recuerde reemplazar el valor de ```<puerto>``` con el puerto indicado para cada microservicio, ```<nombre de la imagen>``` con el nombre del microservicio respectivo (servicio-usuarios, servicio-cursos, servicio-examenes y servicio-respuestas) y ```<usuario docker>``` con el nombre de usuario docker que tiene en docker desktop.
 																		 
-6. Publique la imagen construida en DockerHub, para esto ejecute el siguiente comando:
+6. Publique las imágenes construidas en DockerHub, para esto ejecute el siguiente comando:
 	
-```powershell
-docker push <usuario docker>/<nombre de la imagen>:v1
-```
+	```powershell
+	docker push <usuario docker>/<nombre de la imagen>:v1
+	```
 	
 7. Verifique que cada una de las imágenes se ha publicado en DockerHub.
 	
@@ -397,9 +397,9 @@ Luego de verificar el funcionamiento de los respectivos microservicios, el paso 
 																		 
 6. Publique la imagen construida en DockerHub, para esto ejecute el siguiente comando:
 	
-```powershell
-docker push <usuario docker>/<nombre de la imagen>:v1
-```
+	```powershell
+	docker push <usuario docker>/<nombre de la imagen>:v1
+	```
 	
 7. Verifique que la imagen se ha publicado en DockerHub.
 	
