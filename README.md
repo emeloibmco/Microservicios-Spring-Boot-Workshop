@@ -32,7 +32,9 @@ Antes de iniciar con el despliegue de la aplicación es necesario crear un nuevo
 3. Cuando se encuentre en la consola de OpenShift seleccione el rol de ```Administrator``` y de click sobre la pestaña ```Projects```.
 4. Aquí de click sobre el botón ```Create Project``` e ingrese la información que se le pide, luego de click en ```create```.
 
-
+<p align="center"><img src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/OSproject.gif"></p>
+																		 
+<br />
 
 
 
@@ -52,6 +54,9 @@ Para desplegar una base de datos MySQL sobre el proyecto que acabo de crear teng
 	* ```MySQL Database Name```: Nombre de la base de datos MySQL a la que se accede.
 5. Luego de esto de click en ```Create```.
 
+<p align="center"><img src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/DB.gif"></p>
+																		 
+<br />
 
 ## Librerias commons :books:
 Existe las librerias commons, que son proyectos creados en sprigboot para ser utilizadas por los microservicios como librerias, es decir, que contienen clases, modelos o servicios que son utilizadas por varios de los microservicios y no hace falta volverlos a crear en cada microservicio. Cuando estamos trabajando el proyecto localmente basta con que estas librerias se encuentren en el mismo proyecto que los microservicios para poder hacer uso de sus clases incluyendolos en el pom del microservicio, sin embargo en un entorno de nube necesitaremos un repositorio remoto que nos permita acceder a estos. A continuación se detallan los pasos para hacer utilizar un repositorio de github que permita a los microservicios disponer de estas librerias commons:
