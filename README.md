@@ -40,14 +40,104 @@ Antes de iniciar con el despliegue de la aplicación es necesario crear un nuevo
 
 ## Despliegue de la base de datos
 Para desplegar una base de datos MySQL sobre el proyecto que acabo de crear tenga en cuenta los siguientes pasos:
+1. Dentro de su cuenta de *IBM Cloud* acceda al ```IBM Cloud Shell``` dando click en la pestaña <a href="https://cloud.ibm.com/shell"> <img width="25" src="https://github.com/emeloibmco/Red-Hat-Open-Shift---Desplegar-MySQL/blob/main/Images/Shell_IBM.png"></a>, que se ubica en la parte superior derecha del portal. 
+<br />
 
-1. Acceda al IBM Cloud Shell. No olvide colocar el token de acceso a su cluster, el cual pueede encontrar dando click sobre su correo dentro del dashboard de OpenShift ➡ Copy Login Command ➡ Display Token ➡ Log in with this token.
+<p align="center"><img src="Images/IBMCloudShell.png"></p>
 
-2. Coloque el siguiente comando para desplegar una imagen de MySQL.
+<br />
+
+2. Ingrese a la consola web de OpenShift presionando el botón ```OpenShift web console```. 
+<br />
+
+<p align="center"><img src="Images/AccederConsolaOC.PNG"></p>
+
+<br />
+
+
+3. Posteriormente de click sobre su correo (parte superior derecha) y luego en la opción ```Copy Login Command```. Una vez cargue la nueva ventana, de click en la opción ```Display Token```. Copie el comando que sale en la opción ```Log in with this token``` y colóquelo en el IBM Cloud Shell para iniciar sesión y acceder a su clúster de OpenShift.
+<br />
+
+<p align="center"><img src="Images/TokenFinal.gif"></p>
+
+<br />
+
+<p align="center"><img src="Images/TokenAccesoShell.PNG"></p>
+
+<br />
+
+4. Acceda al proyecto creado en IBM Cloud Shell. Para ello utilice el comando:
 
    ```
+   oc project <nombre_proyecto>
+   ```
+
+   Ejemplo:
+
+   ```
+   oc project microservicios-spring-mysql
+   ```
+   <br />
+
+   <p align="center"><img src="Images/AccesoProyecto.PNG"></p>
+
+   <br />
+
+5. Realice una búsqueda en el catálogo sobre los recursos relacionados con MySQL que pueden ser desplegados en el clúster. Para ello coloque el comando:
+
+   ```
+   oc new-app --search mysql
+   ```
+   <br />
+
+   <p align="center"><img src="Images/BuscarMySQL.PNG"></p>
+
+   <br />
+
+6. Despliegue el template de MySQL. Para este caso hay dos opciones que puede utilizar:
+   * Sin almacenamiento persistente (```mysql```).
+   * Con almacenamiento persistente (```mysql-persistent```).
+   <br />
+   
+   Para este caso, se utiliza la plantilla con almacenamiento de volumen persistente, ya que esto permite que los datos sobrevivan y no se pierdan cuando el pod se reinicie. Por otro lado, en el despliegue se deben indicar algunas variables de entorno para la configuración del servidor. Utilice el comando:
    
    ```
+   oc new-app mysql-persistent --param=MYSQL_USER=user --param=MYSQL_PASSWORD=pass --param=MYSQL_DATABASE=prueba --name mysql
+   ```
+   
+   > NOTA: Las varibles definidas permiten configurar el usuario, contraseña y nombre de la base de datos MySQL. Estos datos se necesitarán más adelante cuando acceda a la base de datos. Para este caso particuñar los datos usados son:
+
+   ```
+   oc new-app mysql-persistent --param=MYSQL_USER=admin --param=MYSQL_PASSWORD=teamcloud2021 --param=MYSQL_DATABASE=app_microservices_db --name mysqldb
+   ```
+   
+   <br />
+
+   <p align="center"><img src="Images/DesplegarMySQL.PNG"></p>
+
+   <br />
+
+7. Verifique el estado de implementación de la base de datos. Para ello coloque el comando:
+
+   ```
+   oc status
+   ```
+   <br />
+
+   <p align="center"><img src="Images/oc_status.PNG"></p>
+
+   <br />
+
+8. Obtenga los pods de MySQL y verifique que el despliegue se ha completado con éxito. Utilice el comando:
+
+   ```
+   oc get pods
+   ```
+   <br />
+
+   <p align="center"><img src="Images/pods-mysql-running.PNG"></p>
+
+   <br />
    
 
 
