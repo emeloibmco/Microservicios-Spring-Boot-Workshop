@@ -43,14 +43,14 @@ Para desplegar una base de datos MySQL sobre el proyecto que acabo de crear teng
 1. Dentro de su cuenta de *IBM Cloud* acceda al ```IBM Cloud Shell``` dando click en la pestaña <a href="https://cloud.ibm.com/shell"> <img width="25" src="https://github.com/emeloibmco/Red-Hat-Open-Shift---Desplegar-MySQL/blob/main/Images/Shell_IBM.png"></a>, que se ubica en la parte superior derecha del portal. 
 <br />
 
-<p align="center"><img src="Images/IBMCloudShell.png"></p>
+<p align="center"><img src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/IBMCloudShell.png"></p>
 
 <br />
 
 2. Ingrese a la consola web de OpenShift presionando el botón ```OpenShift web console```. 
 <br />
 
-<p align="center"><img src="Images/AccederConsolaOC.PNG"></p>
+<p align="center"><img src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/AccederConsolaOC.png"></p>
 
 <br />
 
@@ -58,11 +58,11 @@ Para desplegar una base de datos MySQL sobre el proyecto que acabo de crear teng
 3. Posteriormente de click sobre su correo (parte superior derecha) y luego en la opción ```Copy Login Command```. Una vez cargue la nueva ventana, de click en la opción ```Display Token```. Copie el comando que sale en la opción ```Log in with this token``` y colóquelo en el IBM Cloud Shell para iniciar sesión y acceder a su clúster de OpenShift.
 <br />
 
-<p align="center"><img src="Images/TokenFinal.gif"></p>
+<p align="center"><img src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/TokenFinal.gif"></p>
 
 <br />
 
-<p align="center"><img src="Images/TokenAccesoShell.PNG"></p>
+<p align="center"><img src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/TokenAccesoShell.png"></p>
 
 <br />
 
@@ -79,10 +79,6 @@ Para desplegar una base de datos MySQL sobre el proyecto que acabo de crear teng
    ```
    <br />
 
-   <p align="center"><img src="Images/AccesoProyecto.PNG"></p>
-
-   <br />
-
 5. Realice una búsqueda en el catálogo sobre los recursos relacionados con MySQL que pueden ser desplegados en el clúster. Para ello coloque el comando:
 
    ```
@@ -90,7 +86,7 @@ Para desplegar una base de datos MySQL sobre el proyecto que acabo de crear teng
    ```
    <br />
 
-   <p align="center"><img src="Images/BuscarMySQL.PNG"></p>
+   <p align="center"><img src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/BuscarMySQL.png"></p>
 
    <br />
 
