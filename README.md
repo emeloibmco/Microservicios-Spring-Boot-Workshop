@@ -66,7 +66,7 @@ Para desplegar una base de datos MySQL sobre el proyecto que acabo de crear teng
 
 <br />
 
-4. Acceda al proyecto creado en IBM Cloud Shell. Para ello utilice el comando:
+4. Acceda al proyecto creado OpenShift. Para ello utilice el comando:
 
    ```
    oc project <nombre_proyecto>
@@ -139,24 +139,43 @@ Para desplegar una base de datos MySQL sobre el proyecto que acabo de crear teng
 
    <br />
    
+Para acceder a la base de datos MySQL que ha desplegado en el clúster de OpenShift, siga los pasos que se muestran a continuación:
+<br />
 
+9. Abra una sesión de shell remota en un contenedor. Para ello, utilice el siguiente comando reemplazando ```<pod>``` con el nombre del pod de MySQL cuyo estado es ```running```:
 
-----------------------------------------
-1.  Ingrese al proyecto con el rol de ```Developer```
-2.  De click sobre el botón ```+Add``` y luego elija la opcion de ```Database``` en la seccion de ```Developer Catalog```.
-3.  Aqui busque MySQL con la opción de filtrar por palabra clave.
-4.  De click sobre ```Instantiate Template```y complete la siguiente información:
-	*```Namespace```: Seleccione el proyecto que acabo de crear.
-	* ```Memory Limit```: Ingrese la cantidad máxima de memoria que puede usar el contenedor.
-	* ```Database Service Name```: El nombre del servicio OpenShift expuesto para la base de datos.
-	* ```MySQL Connection Username```: Nombre de usuario del usuario de MySQL que se utilizará para acceder a la base de datos.
-	* ```MySQL Connection Password```:  Contraseña para el usuario de conexión. 
-	* ```MySQL root user Password```: Contraseña para el usuario root.
-	* ```MySQL Database Name```: Nombre de la base de datos MySQL a la que se accede.
-5. Luego de esto de click en ```Create```.
+   ```
+   oc rsh <pod>
+   ```
+   
+   Ejemplo:
+   
+   ```
+   oc rsh mysql-1-r9pv2
+   ```
+   <br />
 
-<p align="center"><img src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/DB.gif"></p>
-																		 
+   <p align="center"><img src="Images/AccesoMySQL1.PNG"></p>
+
+   <br />
+
+10. Para acceder con las credenciales definidas en el despliegue de MySQL coloque:
+
+   ```
+   mysql -u user -p
+   ```
+   <br />
+   
+   Una vez ejecute el comando, coloque la contraseña establecida (```pass```) y presione enter para continuar. Si la contraseña es correcta, accederá con exito a la base de datos.
+   
+   <br />
+
+   <p align="center"><img src="Images/AccesoMySQL2.PNG"></p>
+
+   <br />
+ 
+   > NOTA: para conocer sobre las operaciones del CRUD puede consultar https://github.com/emeloibmco/Red-Hat-Open-Shift-Despliegue-MySQL.
+		 
 <br />
 
 ## Librerias commons :books:
