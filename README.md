@@ -40,7 +40,15 @@ Antes de iniciar con el despliegue de la aplicación es necesario crear un nuevo
 
 ## Despliegue de la base de datos
 Para desplegar una base de datos MySQL sobre el proyecto que acabo de crear tenga en cuenta los siguientes pasos:
-1. Acceda al IBM Cloud Shell.
+
+1. Acceda al IBM Cloud Shell. No olvide colocar el token de acceso a su cluster, el cual pueede encontrar dando click sobre su correo dentro del dashboard de OpenShift ➡ Copy Login Command ➡ Display Token ➡ Log in with this token.
+
+2. Coloque el siguiente comando para desplegar una imagen de MySQL.
+
+   ```
+   
+   ```
+   
 
 
 ----------------------------------------
