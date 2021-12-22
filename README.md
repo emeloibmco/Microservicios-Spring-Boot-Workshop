@@ -109,7 +109,7 @@ Para desplegar una base de datos MySQL sobre el proyecto que acabo de crear teng
    
    <br />
 
-   <p align="center"><img src="Images/DesplegarMySQL.PNG"></p>
+   <p align="center"><img src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/desplegar_mysql.jpeg"></p>
 
    <br />
 
@@ -118,9 +118,6 @@ Para desplegar una base de datos MySQL sobre el proyecto que acabo de crear teng
    ```
    oc status
    ```
-   <br />
-
-   <p align="center"><img src="Images/oc_status.PNG"></p>
 
    <br />
 
@@ -131,7 +128,7 @@ Para desplegar una base de datos MySQL sobre el proyecto que acabo de crear teng
    ```
    <br />
 
-   <p align="center"><img src="Images/pods-mysql-running.PNG"></p>
+   <p align="center"><img src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/oc_pods.PNG"></p>
 
    <br />
    
@@ -147,26 +144,26 @@ Para acceder a la base de datos MySQL que ha desplegado en el clúster de OpenSh
    Ejemplo:
    
    ```
-   oc rsh mysql-1-r9pv2
+   oc rsh mysql-1-zw2qk
    ```
    <br />
 
-   <p align="center"><img src="Images/AccesoMySQL1.PNG"></p>
+   <p align="center"><img src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/rsh.PNG"></p>
 
    <br />
 
 10. Para acceder con las credenciales definidas en el despliegue de MySQL coloque:
 
    ```
-   mysql -u user -p
+   mysql -u admin -p
    ```
    <br />
    
-   Una vez ejecute el comando, coloque la contraseña establecida (```pass```) y presione enter para continuar. Si la contraseña es correcta, accederá con exito a la base de datos.
+   Una vez ejecute el comando, coloque la contraseña establecida (```teamcloud2021```) y presione enter para continuar. Si la contraseña es correcta, accederá con exito a la base de datos.
    
    <br />
 
-   <p align="center"><img src="Images/AccesoMySQL2.PNG"></p>
+   <p align="center"><img src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/mysql_u_p.PNG"></p>
 
    <br />
  
