@@ -99,7 +99,7 @@ Para desplegar una base de datos MySQL sobre el proyecto que acabo de crear teng
    * Con almacenamiento persistente (```mysql-persistent```).
    <br />
    
-   Para este caso, se utiliza la plantilla con almacenamiento de volumen persistente, ya que esto permite que los datos sobrevivan y no se pierdan cuando el pod se reinicie. Por otro lado, en el despliegue se deben indicar algunas variables de entorno para la configuración del servidor. Utilice el comando:
+   Para este caso, se utiliza la plantilla con almacenamiento de volumen persistente ya que esto permite que los datos sobrevivan y no se pierdan cuando el pod se reinicie. Por otro lado, en el despliegue se deben indicar algunas variables de entorno para la configuración del servidor. Utilice el comando:
    
    ```
    oc new-app mysql-persistent --param=MYSQL_USER=user --param=MYSQL_PASSWORD=pass --param=MYSQL_DATABASE=prueba --name mysql
