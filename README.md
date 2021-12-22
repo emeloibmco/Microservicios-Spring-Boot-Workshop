@@ -40,7 +40,10 @@ Antes de iniciar con el despliegue de la aplicación es necesario crear un nuevo
 
 ## Despliegue de la base de datos
 Para desplegar una base de datos MySQL sobre el proyecto que acabo de crear tenga en cuenta los siguientes pasos:
+1. Acceda al IBM Cloud Shell.
 
+
+----------------------------------------
 1.  Ingrese al proyecto con el rol de ```Developer```
 2.  De click sobre el botón ```+Add``` y luego elija la opcion de ```Database``` en la seccion de ```Developer Catalog```.
 3.  Aqui busque MySQL con la opción de filtrar por palabra clave.
