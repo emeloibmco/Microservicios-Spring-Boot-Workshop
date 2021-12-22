@@ -101,7 +101,7 @@ Para desplegar una base de datos MySQL sobre el proyecto que acabo de crear teng
    oc new-app mysql-persistent --param=MYSQL_USER=user --param=MYSQL_PASSWORD=pass --param=MYSQL_DATABASE=prueba --name mysql
    ```
    
-   > NOTA: Las varibles definidas permiten configurar el usuario, contraseña y nombre de la base de datos MySQL. Estos datos se necesitarán más adelante cuando acceda a la base de datos. Para este caso particuñar los datos usados son:
+   > NOTA: Las varibles definidas permiten configurar el usuario, contraseña y nombre de la base de datos MySQL. Estos datos se necesitarán más adelante cuando acceda a la base de datos. Para este caso particular los datos usados son:
 
    ```
    oc new-app mysql-persistent --param=MYSQL_USER=admin --param=MYSQL_PASSWORD=teamcloud2021 --param=MYSQL_DATABASE=app_microservices_db --name mysqldb
