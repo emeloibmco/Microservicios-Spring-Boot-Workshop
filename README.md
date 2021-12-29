@@ -546,6 +546,7 @@ Luego de verificar el funcionamiento de los respectivos microservicios, el paso 
 <br />
 
 ## Referencias :book:
+* Curso de Udemy <a href="https://cloud.ibm.com/">- Microservicios con Spring Cloud y Angular full stack</a>. Código de la aplicación y configuración del backend y frontend.
 <br />
 
 ## Autores :black_nib:
