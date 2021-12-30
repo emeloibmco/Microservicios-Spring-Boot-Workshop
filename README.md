@@ -14,7 +14,7 @@ En esta guía se encuentra explicado el proceso paso a paso y las herramientas n
 6. [Configuración y despliegue de microservicios](#Configuración-y-despliegue-de-microservicios-paperclips)
 7. [Configuración y despliegue del microservicio Gateway](#Configuración-y-despliegue-del-microservicio-Gateway-door)
 8. [Acceder a la aplicación](#Acceder-a-la-aplicación-computer)
-9. [Configuración del frontend en angular](#Configuración-del-frontend-en Angular-a)
+9. [Configuración del frontend en Angular](#Configuración-del-frontend-en-Angular-a)
 10. [Referencias](#Referencias-book)
 11. [Autores](#Autores-black_nib)
 
@@ -561,13 +561,12 @@ Luego de verificar el funcionamiento de los respectivos microservicios, el paso 
 	
 	```
 	export class Alumno{
-   id: number;
-   nombre: string;
-   apellido: string;
-   email: string;
-   createAt: string; 
-   fotoHashCode: number;}
-	
+	id: number;
+	nombre: string;
+	apellido: string;
+	email: string;
+	createAt: string; 
+	fotoHashCode: number;}
 	```
 	
 	- Mediante los componentes services, Angular se podrá conectar al backend y obtener datos de este. Cree una carpeta llamada services y en ella cree cada uno de los servicios: alumno, curso, examen y respuesta:
@@ -721,6 +720,7 @@ public editar(): void {
 ```
 	
 Donde se evidencia que se realiza la subscripción al servicio alumnos creado anteriormente, para asi crear dos métodos crear y editar que se conectarán al backend de la aplicación. Finalmente en el html de este componente se crea una lista y se llaman ambos métodos para permitir al usuario crear o editar un alumno.
+	
 ```
 	<div class="card text-dark bg-light mb-3">
     <div class="card-header">{{titulo}}</div>
