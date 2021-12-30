@@ -14,8 +14,9 @@ En esta guía se encuentra explicado el proceso paso a paso y las herramientas n
 6. [Configuración y despliegue de microservicios](#Configuración-y-despliegue-de-microservicios-paperclips)
 7. [Configuración y despliegue del microservicio Gateway](#Configuración-y-despliegue-del-microservicio-Gateway-door)
 8. [Acceder a la aplicación](#Acceder-a-la-aplicación-computer)
-9. [Referencias](#Referencias-book)
-10. [Autores](#Autores-black_nib)
+9. [Configuración frontend](#Configuración-frontend-)
+10. [Referencias](#Referencias-book)
+11. [Autores](#Autores-black_nib)
 
 ## Pre Requisitos :pencil:
 * Contar con una cuenta en <a href="https://cloud.ibm.com/"> IBM Cloud</a>.
@@ -545,6 +546,216 @@ Luego de verificar el funcionamiento de los respectivos microservicios, el paso 
 	
 <br />
 
+## Configuración frontend en Angular :a: 
+1. Para crear su proyecto en angular y conectarlo al backend que ya se encuetra desplegado en OpenShift siga estos pasos:
+	
+	
+	- Para representar cada una de las clases y sus atributos existen los componentes models. Cree una carpeta llamada models y en ella cree cada uno de los modelos:  		alumno, curso, examen, pregunta y respuesta:
+	```
+	ng g class models/<nombre del modelo> --skipTests=true
+	```
+	A continuación se muestra a manera de ejemplo el formato que se sigue para la clase alumno.ts:
+	
+	```
+	export class Alumno {
+   id: number;
+   nombre: string;
+   apellido: string;
+   email: string;
+   createAt: string; 
+   fotoHashCode: number;
+}
+	```
+	
+	- Mediante los componentes services, Angular se podrá conectar al backend y obtener datos de este. Cree una carpeta llamada services y en ella cree cada uno de los servicios: alumno, curso, examen y respuesta:
+	
+	```
+		ng g service services/<nombre del servicio> --skipTests=true
+	```
+
+	
+	A continuación se muestra a manera de ejemplo el formato que se sigue para el servicio alumno.service.ts:
+	
+	```
+	import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Alumno } from '../models/alumno';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AlumnoService {
+
+  private baseEndpoint = '<Ruta del servicio backend>';
+  private cabeceras: HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
+  constructor(private http: HttpClient) { }
+
+  public listar(): Observable<Alumno[]> {
+    return this.http.get<Alumno[]>(this.baseEndpoint);
+  }
+
+  public listarPaginas(page: string, size: string): Observable<any>{
+    const params = new HttpParams()
+    .set('page', page)
+    .set('size', size);
+    return this.http.get<any>(`${this.baseEndpoint}/pagina`, {params: params});
+  }
+
+  public ver(id: number): Observable<Alumno>{
+    return this.http.get<Alumno>(`${this.baseEndpoint}/${id}`);
+  }
+
+  public crear(alumno:Alumno): Observable<Alumno>{
+    return this.http.post<Alumno>(this.baseEndpoint, alumno, { headers: this.cabeceras});
+  }
+
+  public editar(alumno:Alumno): Observable<Alumno>{
+    return this.http.put<Alumno>(`${this.baseEndpoint}/${alumno.id}`, { headers: this.cabeceras});
+  }
+
+  public eliminar(id: number): Observable<void>{
+    return this.http.delete<void>(`${this.baseEndpoint}/${id}`);
+  }
+
+ 
+}
+
+	```
+	```**Nota**```: En el string baseEndpoint ingrese la ruta entragada por Openshift para su servicio de Alumnos.
+- Cree el componente de los microservicios, que finalmente será lo que visualice en la página web:
+	```
+	ng g component components/<Nombre del componente>
+	```
+	A continuación se muestra a manera de ejemplo el formato que se sigue para el componente alumnos.components.ts:
+	```
+	import { Component, OnInit } from '@angular/core';
+import { Alumno } from 'src/app/models/alumno';
+import { AlumnoService } from 'src/app/services/alumno.service';
+
+@Component({
+  selector: 'app-alumnos',
+  templateUrl: './alumnos.component.html',
+  styleUrls: ['./alumnos.component.css']
+})
+export class AlumnosComponent implements OnInit {
+
+  titulo= 'Listado de alumnos';
+  alumnos: Alumno[];
+  constructor(private service: AlumnoService ) { }
+
+  ngOnInit(){
+    this.service.listar().subscribe(alumnos => {
+        this.alumnos= alumnos;
+    });
+  }
+
+}
+	```
+
+Despues de tener estos componentes base, podrá empezar a crear distintos componentes que le generen las diferentes vistas para cada servicio, por ejemplo para el microservicio alumnos se creo el componente ```alumnos-form.components.ts```. En este componente se agrego el siguiente código:
+```
+	import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Alumno } from 'src/app/models/alumno';
+import { AlumnoService } from 'src/app/services/alumno.service';
+
+@Component({
+  selector: 'app-alumnos-form',
+  templateUrl: './alumnos-form.component.html',
+  styleUrls: ['./alumnos-form.component.css']
+})
+export class AlumnosFormComponent implements OnInit {
+  titulo= 'Crear alumnos';
+
+  alumno: Alumno= new Alumno();
+  error: any;
+  constructor(private service: AlumnoService,
+     private router: Router,
+     private route: ActivatedRoute ) { }
+
+
+
+  ngOnInit(){
+    this.route.paramMap.subscribe(params => {
+      const id: number = +params.get('id');
+      if(id){
+        this.service.ver(id).subscribe(alumno => 
+          this.alumno= alumno)
+      }
+    })
+  }
+
+  public crear():void {
+    console.log(this.alumno);
+    this.service.crear(this.alumno).subscribe(alumno =>{
+      console.log(alumno);
+      alert(`Alumno ${alumno.nombre} creado con éxito`);
+      this.router.navigate(["/alumnos"]);
+  }, err => {
+    if(err.status === 400){
+      this.error = err.error;
+      console.log(this.error);
+    }
+  })
+}
+
+public editar(): void {
+  console.log(this.alumno);
+  this.service.editar(this.alumno).subscribe(alumno =>{
+    console.log(alumno);
+    alert(`Alumno ${alumno.nombre} actualizado con éxito`);
+    this.router.navigate(["/alumnos"]);
+}, err => {
+  if(err.status === 400){
+    this.error = err.error;
+    console.log(this.error);
+  }
+})
+}
+
+}
+```
+	
+Donde se evidencia que se realiza la subscripción al servicio alumnos creado anteriormente, para asi crear dos métodos crear y editar que se conectarán al backend de la aplicación. Finalmente en el html de este componente se crea una lista y se llaman ambos métodos para permitir al usuario crear o editar un alumno.
+```
+	<div class="card text-dark bg-light mb-3">
+    <div class="card-header">{{titulo}}</div>
+    <div class="card-body">
+        <button class="btn btn-secondary my-2" routerLink="/alumnos">volver</button>
+
+        <form>
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" class="form-control" id="nombre"
+                [(ngModel)]="alumno.nombre">
+                <div class="alert alert-danger" *ngIf="error?.nombre">
+                    {{ error.nombre }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="apellido">Apellido</label>
+                <input type="text" name="apellido" class="form-control" id="apellido"
+                [(ngModel)]="alumno.apellido">
+                <div class="alert alert-danger" *ngIf="error?.apellido">
+                    {{ error.apellido }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" name="email" class="form-control" id="email"
+                [(ngModel)]="alumno.email">
+                <div class="alert alert-danger" *ngIf="error?.email">
+                    {{ error.email }}
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" (click)="alumno.id? editar() : crear()">{{ alumno.id? 'Editar' : 'Crear' }}</button>
+            </div>
+        </form>
+</div>
+</div>
+```
 ## Referencias :book:
 * Curso de Udemy <a href="https://ibm-learning.udemy.com/course/microservicios-spring-cloud-y-angular-9/learn/lecture/17302890#questions">- Microservicios con Spring Cloud y Angular full stack</a>. Código de la aplicación y configuración del backend y frontend.
 <br />
