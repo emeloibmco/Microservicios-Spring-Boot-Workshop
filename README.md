@@ -14,7 +14,7 @@ En esta guía se encuentra explicado el proceso paso a paso y las herramientas n
 6. [Configuración y despliegue de microservicios](#Configuración-y-despliegue-de-microservicios-paperclips)
 7. [Configuración y despliegue del microservicio Gateway](#Configuración-y-despliegue-del-microservicio-Gateway-door)
 8. [Acceder a la aplicación](#Acceder-a-la-aplicación-computer)
-9. [Configuración del frontend en Angular](#Configuración-del-frontend-en Angular-a)
+9. [Configuración del frontend en angular](#Configuración-del-frontend-en Angular-a)
 10. [Referencias](#Referencias-book)
 11. [Autores](#Autores-black_nib)
 
