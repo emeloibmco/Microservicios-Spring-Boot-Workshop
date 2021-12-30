@@ -15,8 +15,10 @@ En esta guía se encuentra explicado el proceso paso a paso y las herramientas n
 7. [Configuración y despliegue del microservicio Gateway](#Configuración-y-despliegue-del-microservicio-Gateway-door)
 8. [Acceder a la aplicación](#Acceder-a-la-aplicación-computer)
 9. [Configuración del frontend en Angular](#Configuración-del-frontend-en-Angular-a)
-10. [Referencias](#Referencias-book)
-11. [Autores](#Autores-black_nib)
+10. [Creación de imagen frontend](#Creación-de-imagen-frontend)
+11. [Despliegue de frontend en OpenShift](#Despliegue-de-frontend-en-OpenShift)
+12. [Referencias](#Referencias-book)
+13. [Autores](#Autores-black_nib)
 
 ## Pre Requisitos :pencil:
 * Contar con una cuenta en <a href="https://cloud.ibm.com/"> IBM Cloud</a>.
@@ -758,6 +760,14 @@ Donde se evidencia que se realiza la subscripción al servicio alumnos creado an
 </div>
 </div>
 ```
+<br />
+	
+## Creación de imagen frontend
+<br />
+	
+## Despliegue de frontend en OpenShift
+<br />
+	
 ## Referencias :book:
 * Curso de Udemy <a href="https://ibm-learning.udemy.com/course/microservicios-spring-cloud-y-angular-9/learn/lecture/17302890#questions">- Microservicios con Spring Cloud y Angular full stack</a>. Código de la aplicación y configuración del backend y frontend.
 <br />
