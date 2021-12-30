@@ -14,7 +14,7 @@ En esta guía se encuentra explicado el proceso paso a paso y las herramientas n
 6. [Configuración y despliegue de microservicios](#Configuración-y-despliegue-de-microservicios-paperclips)
 7. [Configuración y despliegue del microservicio Gateway](#Configuración-y-despliegue-del-microservicio-Gateway-door)
 8. [Acceder a la aplicación](#Acceder-a-la-aplicación-computer)
-9. [Configuración frontend](#Configuración-frontend-)
+9. [Configuración del frontend en Angular](#Configuración-del-frontend-en Angular-a)
 10. [Referencias](#Referencias-book)
 11. [Autores](#Autores-black_nib)
 
@@ -546,28 +546,32 @@ Luego de verificar el funcionamiento de los respectivos microservicios, el paso 
 	
 <br />
 
-## Configuración frontend en Angular :a: 
-1. Para crear su proyecto en angular y conectarlo al backend que ya se encuetra desplegado en OpenShift siga estos pasos:
+## Configuración del frontend en Angular :a: 
+	
+1. Para crear su proyecto en angular y conectarlo al backend que ya se encuentra desplegado en OpenShift siga estos pasos:
 	
 	
 	- Para representar cada una de las clases y sus atributos existen los componentes models. Cree una carpeta llamada models y en ella cree cada uno de los modelos:  		alumno, curso, examen, pregunta y respuesta:
+	
 	```
 	ng g class models/<nombre del modelo> --skipTests=true
 	```
+	
 	A continuación se muestra a manera de ejemplo el formato que se sigue para la clase alumno.ts:
 	
 	```
-	export class Alumno {
+	export class Alumno{
    id: number;
    nombre: string;
    apellido: string;
    email: string;
    createAt: string; 
-   fotoHashCode: number;
-}
+   fotoHashCode: number;}
+	
 	```
 	
 	- Mediante los componentes services, Angular se podrá conectar al backend y obtener datos de este. Cree una carpeta llamada services y en ella cree cada uno de los servicios: alumno, curso, examen y respuesta:
+	
 	
 	```
 		ng g service services/<nombre del servicio> --skipTests=true
@@ -615,19 +619,20 @@ export class AlumnoService {
   }
 
   public eliminar(id: number): Observable<void>{
-    return this.http.delete<void>(`${this.baseEndpoint}/${id}`);
-  }
-
- 
-}
+    return this.http.delete<void>(`${this.baseEndpoint}/${id}`);}}
+	
 
 	```
-	```**Nota**```: En el string baseEndpoint ingrese la ruta entragada por Openshift para su servicio de Alumnos.
+	> NOTA: En el string baseEndpoint ingrese la ruta entragada por Openshift para su servicio de Alumnos.
+	
 - Cree el componente de los microservicios, que finalmente será lo que visualice en la página web:
+	
 	```
 	ng g component components/<Nombre del componente>
 	```
+	
 	A continuación se muestra a manera de ejemplo el formato que se sigue para el componente alumnos.components.ts:
+	
 	```
 	import { Component, OnInit } from '@angular/core';
 import { Alumno } from 'src/app/models/alumno';
@@ -647,10 +652,8 @@ export class AlumnosComponent implements OnInit {
   ngOnInit(){
     this.service.listar().subscribe(alumnos => {
         this.alumnos= alumnos;
-    });
-  }
-
-}
+    });}}
+	
 	```
 
 Despues de tener estos componentes base, podrá empezar a crear distintos componentes que le generen las diferentes vistas para cada servicio, por ejemplo para el microservicio alumnos se creo el componente ```alumnos-form.components.ts```. En este componente se agrego el siguiente código:
