@@ -17,8 +17,9 @@ En esta guía se encuentra explicado el proceso paso a paso y las herramientas n
 9. [Configuración del frontend en Angular](#Configuración-del-frontend-en-Angular-a)
 10. [Creación de imagen frontend](#Creación-de-imagen-frontend)
 11. [Despliegue de frontend en OpenShift](#Despliegue-de-frontend-en-OpenShift)
-12. [Referencias](#Referencias-book)
-13. [Autores](#Autores-black_nib)
+12. [NOTAS sobre temas pendientes](#NOTAS-sobre-temas-pendientes)
+13. [Referencias](#Referencias-book)
+14. [Autores](#Autores-black_nib)
 
 ## Pre Requisitos :pencil:
 * Contar con una cuenta en <a href="https://cloud.ibm.com/"> IBM Cloud</a>.
@@ -767,10 +768,61 @@ Para crearvla imagen del frontend de la aplicacion realice lo siguiente:
 
 1. Clone el repositorio con el comando ```git clone https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop``` en su computador y luego acceda a la carpeta del frontend en una ventana de Windows *PowerShell*.
 
-2. 
+2. El Dockerfile ya se encuentra listo. Procederemos a construir la imagen docker con el siguiente comando:
+	
+```powershell
+docker build -t <usuario docker>/<nombre de la imagen>:<tag> .	
+```
+
+> NOTA: En ```<usuario docker>``` ingrese el nombre de usuario docker que tiene en docker desktop. Para ```<nombre de la imagen>``` un nombre exclusivo para identificar la imagen. Por último ingrese el ```<tag>``` que identifica la versión de la imagen, en este caso v1. 
+
+
+3. Una vez construida la imagen, puede probarla localmente, para verificar que funciona correctamente. Para esto, ejecute el siguiente comando:
+	
+```powershell
+docker run -p 8085:8080 <usuario docker>/<nombre de la imagen>:<tag>
+```	
+	
+4. Ahora debemos publicar la imagen construida en DockerHub, para esto ejecute el siguiente comando:
+	
+```powershell
+docker push <usuario docker>/servicio-eureka-server:v1
+```
+	
+5. Verifique que la imagen se ha publicado en DockerHub.
 <br />
 	
 ## Despliegue de frontend en OpenShift
+Para desplegar la imagen en OpenShift dentro del mismo proyecto en donde desplegó el backend, realice lo siguiente:
+	
+1.  De click en la pestaña ```+Add``` (ubicada en el menú lateral izquierdo) e ingrese en la opción ```Container images```.
+																		 
+	En los siguientes campos complete:
+	* ```Image name from external registry```: ```<usuario docker>/<nombre de la imagen>:<tag>```. 		
+	* ```Runtime```: angularjs
+	* ```Application```: Cree una nueva aplicación para con el nombre ```frontend```.
+	* ```Name```: frontend-microservicios.	
+	* ```Resources```: Deployment.
+	* ```Advanced options```: Seleccione la opción *Create a route to the Application*.
+	
+	Por último de click en el botón ```Create```.
+	
+	<p align="center"><img src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/Frontend.gif"></p>
+
+2. Veridique que se ha desplegado el frontend de la aplicación. Luego, de click en la ruta creada para acceder al mismo. Una vez cargue la URL observará que salen 3 pestañas para explorar sobre Alumnos, Cursos y Exámenes. 
+	
+	<p align="center"><img src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/Eureka_gateway.PNG"></p>
+	
+	<br />
+	
+	
+<br />
+<br />
+
+## NOTAS sobre temas pendientes
+* Pendiente solucionar problema con la operación ```Editar``` en Alumnos.
+* Pendiente agregar la operación ```Eliminar``` en Alumnos.
+* Pendiente la configuración del frontend para los componentes Cursos y Examenes.
 <br />
 	
 ## Referencias :book:
