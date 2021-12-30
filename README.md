@@ -811,7 +811,7 @@ Para desplegar la imagen en OpenShift dentro del mismo proyecto en donde despleg
 	
 	<br />
 
-2. Veridique que se ha desplegado el frontend de la aplicación. Luego, de click en la ruta creada para acceder al mismo. Una vez cargue la URL observará que salen 3 pestañas para explorar sobre Alumnos, Cursos y Exámenes. 
+2. Verifique que se ha desplegado el frontend de la aplicación. Luego, de click en la ruta creada para acceder al mismo. Una vez cargue la URL observará que salen 3 pestañas para explorar sobre Alumnos, Cursos y Exámenes. 
 	
 	<p align="center"><img src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/PruebaFrontend.gif"></p>
 	
