@@ -581,47 +581,46 @@ Luego de verificar el funcionamiento de los respectivos microservicios, el paso 
 	
 	```
 	import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Alumno } from '../models/alumno';
+	import { Injectable } from '@angular/core';
+	import { Observable } from 'rxjs';
+	import { Alumno } from '../models/alumno';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class AlumnoService {
+	@Injectable({
+	  providedIn: 'root'
+	})
+	export class AlumnoService {
 
-  private baseEndpoint = '<Ruta del servicio backend>';
-  private cabeceras: HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
-  constructor(private http: HttpClient) { }
+	  private baseEndpoint = '<Ruta del servicio backend>';
+	  private cabeceras: HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
+	  constructor(private http: HttpClient) { }
 
-  public listar(): Observable<Alumno[]> {
-    return this.http.get<Alumno[]>(this.baseEndpoint);
-  }
+	  public listar(): Observable<Alumno[]> {
+	    return this.http.get<Alumno[]>(this.baseEndpoint);
+	  }
 
-  public listarPaginas(page: string, size: string): Observable<any>{
-    const params = new HttpParams()
-    .set('page', page)
-    .set('size', size);
-    return this.http.get<any>(`${this.baseEndpoint}/pagina`, {params: params});
-  }
+	  public listarPaginas(page: string, size: string): Observable<any>{
+	    const params = new HttpParams()
+	    .set('page', page)
+	    .set('size', size);
+	    return this.http.get<any>(`${this.baseEndpoint}/pagina`, {params: params});
+	  }
 
-  public ver(id: number): Observable<Alumno>{
-    return this.http.get<Alumno>(`${this.baseEndpoint}/${id}`);
-  }
+	  public ver(id: number): Observable<Alumno>{
+	    return this.http.get<Alumno>(`${this.baseEndpoint}/${id}`);
+	  }
 
-  public crear(alumno:Alumno): Observable<Alumno>{
-    return this.http.post<Alumno>(this.baseEndpoint, alumno, { headers: this.cabeceras});
-  }
+	  public crear(alumno:Alumno): Observable<Alumno>{
+	    return this.http.post<Alumno>(this.baseEndpoint, alumno, { headers: this.cabeceras});
+	  }
 
-  public editar(alumno:Alumno): Observable<Alumno>{
-    return this.http.put<Alumno>(`${this.baseEndpoint}/${alumno.id}`, { headers: this.cabeceras});
-  }
+	  public editar(alumno:Alumno): Observable<Alumno>{
+	    return this.http.put<Alumno>(`${this.baseEndpoint}/${alumno.id}`, { headers: this.cabeceras});
+	  }
 
-  public eliminar(id: number): Observable<void>{
-    return this.http.delete<void>(`${this.baseEndpoint}/${id}`);}}
+	  public eliminar(id: number): Observable<void>{
+	    return this.http.delete<void>(`${this.baseEndpoint}/${id}`);}}
+	``` 
 	
-
-	```
 	> NOTA: En el string baseEndpoint ingrese la ruta entragada por Openshift para su servicio de Alumnos.
 	
 - Cree el componente de los microservicios, que finalmente será lo que visualice en la página web:
