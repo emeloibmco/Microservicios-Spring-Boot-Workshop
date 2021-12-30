@@ -764,7 +764,7 @@ Donde se evidencia que se realiza la subscripción al servicio alumnos creado an
 <br />
 	
 ## Creación de imagen frontend
-Para crearvla imagen del frontend de la aplicacion realice lo siguiente:
+Para crear la imagen del frontend de la aplicacion realice lo siguiente:
 
 1. Clone el repositorio con el comando ```git clone https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop``` en su computador y luego acceda a la carpeta del frontend en una ventana de Windows *PowerShell*.
 
