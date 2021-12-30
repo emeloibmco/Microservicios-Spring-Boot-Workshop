@@ -829,6 +829,7 @@ Para desplegar la imagen en OpenShift dentro del mismo proyecto en donde despleg
 	
 ## Referencias :book:
 * Curso de Udemy <a href="https://ibm-learning.udemy.com/course/microservicios-spring-cloud-y-angular-9/learn/lecture/17302890#questions">- Microservicios con Spring Cloud y Angular full stack</a>. Código de la aplicación y configuración del backend y frontend.
+* Curso de Udemy <a href="https://ibm-learning.udemy.com/course/microservicios-con-spring-boot-y-spring-cloud/learn/lecture/15365312?start=0#overview">- Microservicios con Spring Boot y Spring Cloud Netflix Eureka</a>.
 <br />
 
 ## Autores :black_nib:
