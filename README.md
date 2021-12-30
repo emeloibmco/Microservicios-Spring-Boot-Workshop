@@ -17,7 +17,7 @@ En esta guía se encuentra explicado el proceso paso a paso y las herramientas n
 9. [Configuración del frontend en Angular](#Configuración-del-frontend-en-Angular-a)
 10. [Creación de imagen frontend](#Creación-de-imagen-frontend)
 11. [Despliegue de frontend en OpenShift](#Despliegue-de-frontend-en-OpenShift)
-12. [NOTAS sobre temas pendientes](#NOTAS-sobre-temas-pendientes)
+12. [NOTAS sobre temas pendientes con el frontend](#NOTAS-sobre-temas-pendientes-con-el-frontend)
 13. [Referencias](#Referencias-book)
 14. [Autores](#Autores-black_nib)
 
@@ -819,7 +819,7 @@ Para desplegar la imagen en OpenShift dentro del mismo proyecto en donde despleg
 <br />
 <br />
 
-## NOTAS sobre temas pendientes
+## NOTAS sobre temas pendientes con el frontend
 * Pendiente solucionar problema con la operación ```Editar``` en Alumnos.
 * Pendiente agregar la operación ```Eliminar``` en Alumnos.
 * Pendiente la configuración del frontend para los componentes Cursos y Examenes.
