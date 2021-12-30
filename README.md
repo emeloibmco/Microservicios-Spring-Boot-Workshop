@@ -777,7 +777,7 @@ docker build -t <usuario docker>/<nombre de la imagen>:<tag> .
 > NOTA: En ```<usuario docker>``` ingrese el nombre de usuario docker que tiene en docker desktop. Para ```<nombre de la imagen>``` un nombre exclusivo para identificar la imagen. Por último ingrese el ```<tag>``` que identifica la versión de la imagen, en este caso v1. 
 
 
-3. Una vez construida la imagen, puede probarla localmente, para verificar que funciona correctamente. Para esto, ejecute el siguiente comando:
+3. Una vez construida la imagen puede probarla localmente, para verificar que funciona correctamente. Para esto, ejecute el siguiente comando:
 	
 ```powershell
 docker run -p 8085:8080 <usuario docker>/<nombre de la imagen>:<tag>
@@ -786,7 +786,7 @@ docker run -p 8085:8080 <usuario docker>/<nombre de la imagen>:<tag>
 4. Ahora debemos publicar la imagen construida en DockerHub, para esto ejecute el siguiente comando:
 	
 ```powershell
-docker push <usuario docker>/servicio-eureka-server:v1
+docker push <usuario docker>/<nombre de la imagen>:<tag>
 ```
 	
 5. Verifique que la imagen se ha publicado en DockerHub.
