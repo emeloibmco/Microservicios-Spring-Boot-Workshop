@@ -2,6 +2,8 @@
 
 En esta guía se encuentra explicado el proceso paso a paso y las herramientas necesarias para el despliegue de una web app fullstack con Microservicios Spring como backend y Angular como frontend en un cluster de Red Hat OpenShift.
 
+<p align="center"><img src="https://github.com/emeloibmco/Microservicios-Spring-Boot-Workshop/blob/main/Images/esquema.png"></p>
+																		
 <br />
 
 ## Índice  📰
