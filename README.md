@@ -25,7 +25,7 @@ En esta guía se encuentra explicado el proceso paso a paso y las herramientas n
 * Contar con una cuenta en <a href="https://cloud.ibm.com/"> IBM Cloud</a>.
 * Tener instalada la CLI de Docker.
 * Tener instalado Git.
-* 
+* Tener instalado Angular, Node JS.
 <br />
 
 ## Creación de un nuevo proyecto en OpenShift
